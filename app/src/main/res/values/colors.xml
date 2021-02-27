@@ -4,9 +4,10 @@
     <!--    <color name="colorPrimaryDark">#00574B</color>-->
     <!--    <color name="colorAccent">#D81B60</color>-->
 
-    <color name="colorPrimary">#16bc7d</color>
-    <color name="colorPrimaryDark">#16bc7d</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorPrimary">#F58B44</color>
+    <color name="colorPrimaryWhite">#FCF5EB</color>
+    <color name="colorPrimaryDark">#F47D31</color>
+    <color name="colorAccent">#5A6175</color>
 
     <color name="bg_color_for_welcome_slide_one">#F4B242</color>
     <color name="bg_color_for_welcome_slide_two">#17BC7E</color>
