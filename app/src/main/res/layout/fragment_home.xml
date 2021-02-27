@@ -10,10 +10,25 @@
             android:id="@+id/constraintLayout"
             android:background="@drawable/curved_surface"
             android:layout_width="0dp"
-            android:layout_height="300dp"
+            android:layout_height="350dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/loader"
+                android:paddingTop="40dp"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginBottom="80dp"
+                android:scaleType="centerCrop"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                app:lottie_fileName="mediation_animation.json"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
