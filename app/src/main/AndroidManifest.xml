@@ -14,13 +14,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.laaltentech.abou.chakra.game.owner.activity.GameActivity">
+        <activity android:name=".bottomnav.owner.activity.BottomMainNavActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name="com.laaltentech.abou.chakra.game.owner.activity.GameActivity"/>
         <activity android:name="com.laaltentech.abou.chakra.MainActivity" />
         <receiver android:name="com.laaltentech.abou.chakra.game.owner.alarmReceiver.AlarmReceiverFunctions"
             android:enabled="true"
