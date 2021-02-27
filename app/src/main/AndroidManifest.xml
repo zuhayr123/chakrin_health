@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.laaltentech.abou.myapplication">
+    package="com.laaltentech.abou.chakra">
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
 
     <application
-        android:name=".util.AppController"
+        android:name="com.laaltentech.abou.chakra.util.AppController"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".game.owner.activity.GameActivity">
+        <activity android:name="com.laaltentech.abou.chakra.game.owner.activity.GameActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
-        <receiver android:name=".game.owner.alarmReceiver.AlarmReceiverFunctions"
+        <activity android:name="com.laaltentech.abou.chakra.MainActivity" />
+        <receiver android:name="com.laaltentech.abou.chakra.game.owner.alarmReceiver.AlarmReceiverFunctions"
             android:enabled="true"
             android:exported="true">
         </receiver>
