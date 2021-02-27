@@ -92,5 +92,6 @@
     <string name="simple_date">dd/MM/yyyy</string>
     <string name="simple_date_time">dd/MM/yyyy hh:mm a</string>
     <string name="week_lower_only">week</string>
+    <string name="quote_ayurveda">“Ayurveda teaches us to cherish our innate-nature “to love and honor who we are”, not as what people think or tell us, who we should be.”</string>
 
 </resources>
