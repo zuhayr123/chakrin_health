@@ -9,7 +9,7 @@
 
     <item
         android:id="@+id/navigation_meditate"
-        android:title="Meditate"
+        android:title="Subscribe"
         android:fontFamily="@font/apercu_regular"
         android:icon="@drawable/meditate"/>
 

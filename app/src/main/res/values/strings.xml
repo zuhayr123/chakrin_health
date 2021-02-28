@@ -93,5 +93,9 @@
     <string name="simple_date_time">dd/MM/yyyy hh:mm a</string>
     <string name="week_lower_only">week</string>
     <string name="quote_ayurveda">“Ayurveda teaches us to cherish our innate-nature “to love and honor who we are”, not as what people think or tell us, who we should be.”</string>
+    <string name="dosha_mini_str">The five elements combine to form three main energies of bodies...</string>
+    <string name="prakriti_mini_str">Dominant dosha inside the individual\'s body decides their body type...</string>
+    <string name="dincharya_mini_str">Your day to day activities can affect your well-being, tap to know more...</string>
+    <string name="ritu_mini_str">Learn how seasons affect your metabolism and what you should do about it...</string>
 
 </resources>

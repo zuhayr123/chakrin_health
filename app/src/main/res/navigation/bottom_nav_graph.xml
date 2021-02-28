@@ -9,15 +9,15 @@
         android:id="@+id/navigation_home"
         tools:layout="@layout/fragment_home"
         android:name="com.laaltentech.abou.chakra.bottomnav.owner.fragments.HomeFragment"
-        android:label="HomeFragment" />
+        android:label="Home" />
     <fragment
         android:id="@+id/navigation_meditate"
         tools:layout="@layout/fragment_meditate"
         android:name="com.laaltentech.abou.chakra.bottomnav.owner.fragments.MeditateFragment"
-        android:label="MeditateFragment" />
+        android:label="Subscribe" />
     <fragment
         android:id="@+id/navigation_profile"
         tools:layout="@layout/fragment_profile"
         android:name="com.laaltentech.abou.chakra.bottomnav.owner.fragments.ProfileFragment"
-        android:label="ProfileFragment" />
+        android:label="Profile" />
 </navigation>
