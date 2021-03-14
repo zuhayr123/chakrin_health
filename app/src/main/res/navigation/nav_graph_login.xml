@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/splash_fragment"
+    app:startDestination="@id/fragment_login_or_signup">
+
+    <fragment
+        android:id="@+id/fragment_login_or_signup"
+        android:label="login_or_signup"
+        android:name="com.laaltentech.abou.fitnessapp.login.owner.fragments.LoginOrSignupChoose">
+
+        <action
+            android:id="@+id/to_login"
+            app:destination="@+id/fragment_login">
+
+        </action>
+
+        <action
+            android:id="@+id/to_signUp"
+            app:destination="@+id/fragment_signUp">
+
+        </action>
+
+    </fragment>
+
+</navigation>
