@@ -99,4 +99,22 @@
     <string name="ritu_mini_str">Learn how seasons affect your metabolism and what you should do about it...</string>
     <string name="fitness_quote">I hated every minute of training, but I said, \'Don\'t quit. Suffer now and live the rest of your life as a champion</string>
 
+    <string-array name="sector">
+        <item>Printing</item>
+        <item>Vertical Pumps</item>
+        <item>Gearbox and CNC</item>
+        <item>Air Croots and Air Voc</item>
+        <item>Pulling and Lifting</item>
+        <item>Thevrim Power</item>
+        <item>Cooling Tower</item>
+        <item>Wire</item>
+        <item>Auto</item>
+        <item>Sular/Paper/Rolling</item>
+        <item>Expellors</item>
+        <item>Glass Machine</item>
+        <item>Bhatti Repair</item>
+        <item>Self/Own</item>
+        <item>Others</item>
+    </string-array>
+
 </resources>

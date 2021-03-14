@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.laaltentech.abou.fitnessapp.R
 import com.laaltentech.abou.fitnessapp.databinding.LoginOrSignupBinding
 import com.laaltentech.abou.fitnessapp.di.Injectable
@@ -45,6 +46,16 @@ class LoginOrSignupChoose : Fragment(), Injectable {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         initLayoutAnim()
+
+        binding.login.setOnClickListener {
+            val action = LoginOrSignupChooseDirections.actionFragmentLoginOrSignupToLogin2()
+            findNavController().navigate(action)
+        }
+
+        binding.signUp.setOnClickListener {
+            val action = LoginOrSignupChooseDirections.actionFragmentLoginOrSignupToSignUp2()
+            findNavController().navigate(action)
+        }
     }
 
     private fun initLayoutAnim(){

@@ -8,19 +8,20 @@
         android:id="@+id/fragment_login_or_signup"
         android:label="login_or_signup"
         android:name="com.laaltentech.abou.fitnessapp.login.owner.fragments.LoginOrSignupChoose">
-
         <action
-            android:id="@+id/to_login"
-            app:destination="@+id/fragment_login">
-
-        </action>
-
+            android:id="@+id/action_fragment_login_or_signup_to_login2"
+            app:destination="@id/login2" />
         <action
-            android:id="@+id/to_signUp"
-            app:destination="@+id/fragment_signUp">
-
-        </action>
-
+            android:id="@+id/action_fragment_login_or_signup_to_signUp2"
+            app:destination="@id/signUp2" />
     </fragment>
+    <fragment
+        android:id="@+id/login2"
+        android:name="com.laaltentech.abou.fitnessapp.login.owner.fragments.Login"
+        android:label="Login" />
+    <fragment
+        android:id="@+id/signUp2"
+        android:name="com.laaltentech.abou.fitnessapp.login.owner.fragments.SignUp"
+        android:label="SignUp" />
 
 </navigation>

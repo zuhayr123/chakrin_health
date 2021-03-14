@@ -4,7 +4,9 @@ import com.laaltentech.abou.fitnessapp.bottomnav.owner.fragments.HomeFragment
 import com.laaltentech.abou.fitnessapp.bottomnav.owner.fragments.MeditateFragment
 import com.laaltentech.abou.fitnessapp.bottomnav.owner.fragments.ProfileFragment
 import com.laaltentech.abou.fitnessapp.game.owner.fragments.GameInstructionsFragment
+import com.laaltentech.abou.fitnessapp.login.owner.fragments.Login
 import com.laaltentech.abou.fitnessapp.login.owner.fragments.LoginOrSignupChoose
+import com.laaltentech.abou.fitnessapp.login.owner.fragments.SignUp
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
@@ -20,6 +22,12 @@ abstract class FragmentModule {
 
     @ContributesAndroidInjector
     abstract fun contributeLoginOrSignupChoose(): LoginOrSignupChoose
+
+    @ContributesAndroidInjector
+    abstract fun contributeLogin(): Login
+
+    @ContributesAndroidInjector
+    abstract fun contributeSignUp(): SignUp
 
     @ContributesAndroidInjector
     abstract fun contributeMeditateFragment(): MeditateFragment
