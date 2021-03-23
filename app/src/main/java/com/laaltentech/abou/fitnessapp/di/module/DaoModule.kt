@@ -38,6 +38,10 @@ class DaoModule {
 
     @Provides
     @Singleton
+    fun provideLoginDAO(database: MasterDatabase) = database.loginDAO() //todo add Dao here in future
+
+    @Provides
+    @Singleton
     fun provideApiWebservice(restAdapter: Retrofit): WebService {
         val webService = restAdapter.create(WebService::class.java)
         WebServiceHolder.instance.setAPIService(webService)

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/nav_graph_camera_x"
+    app:startDestination="@id/cameraClickFragment">
+
+    <fragment
+        android:id="@+id/cameraClickFragment"
+        android:name="com.laaltentech.abou.fitnessapp.cameraX.fragments.CameraClickFragment"
+        android:label="CameraClickFragment" >
+        <action
+            android:id="@+id/action_cameraClickFragment_to_imageViewerFragment"
+            app:destination="@id/imageViewerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/imageViewerFragment"
+        android:name="com.laaltentech.abou.fitnessapp.cameraX.fragments.ImageViewerFragment"
+        android:label="ImageViewerFragment" >
+        <argument
+            android:name="uri"
+            android:defaultValue="-1"
+            app:argType="string"/>
+    </fragment>
+</navigation>

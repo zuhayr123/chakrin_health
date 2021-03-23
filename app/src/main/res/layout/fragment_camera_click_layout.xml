@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.camera.view.CameraView
+            android:id="@+id/view_camera"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:scaleType="centerCrop"
+            app:pinchToZoomEnabled="true"
+            app:captureMode="image"
+            app:lensFacing="back"
+            app:flash="auto"/>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/click_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="32dp"
+            android:backgroundTint="@color/white"
+            android:src="@drawable/camera_click_foreground"
+            android:tint="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:maxImageSize="40dp" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

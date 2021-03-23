@@ -3,6 +3,8 @@ package com.laaltentech.abou.fitnessapp.di.module
 import com.laaltentech.abou.fitnessapp.bottomnav.owner.fragments.HomeFragment
 import com.laaltentech.abou.fitnessapp.bottomnav.owner.fragments.MeditateFragment
 import com.laaltentech.abou.fitnessapp.bottomnav.owner.fragments.ProfileFragment
+import com.laaltentech.abou.fitnessapp.cameraX.fragments.CameraClickFragment
+import com.laaltentech.abou.fitnessapp.cameraX.fragments.ImageViewerFragment
 import com.laaltentech.abou.fitnessapp.game.owner.fragments.GameInstructionsFragment
 import com.laaltentech.abou.fitnessapp.login.owner.fragments.Login
 import com.laaltentech.abou.fitnessapp.login.owner.fragments.LoginOrSignupChoose
@@ -34,4 +36,10 @@ abstract class FragmentModule {
 
     @ContributesAndroidInjector
     abstract fun contributeProfileFragment(): ProfileFragment
+
+    @ContributesAndroidInjector
+    abstract fun contributeCameraClickFragment(): CameraClickFragment
+
+    @ContributesAndroidInjector
+    abstract fun contributeImageViewerFragment(): ImageViewerFragment
 }

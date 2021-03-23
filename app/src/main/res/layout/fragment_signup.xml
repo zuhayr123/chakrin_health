@@ -3,9 +3,25 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <data>
+        <variable
+            name="signUpViewModel"
+            type="com.laaltentech.abou.fitnessapp.login.viewmodels.SignUpViewModel" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
+        <include
+            android:id="@+id/progress"
+            layout="@layout/progress_bar"
+            android:visibility="invisible"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -13,7 +29,7 @@
             android:layout_height="0dp"
             android:background="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/progress"
             tools:layout_editor_absoluteX="0dp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -61,10 +77,10 @@
                                 android:layout_height="72dp"
                                 android:background="@color/white"
                                 android:scaleType="centerCrop"
-                                android:tint="@color/common_google_signin_btn_text_light_focused"
                                 android:src="@drawable/register_foreground"
+                                android:tint="@color/common_google_signin_btn_text_light_focused"
                                 app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent"/>
+                                app:layout_constraintTop_toTopOf="parent" />
 
                         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -77,11 +93,11 @@
                                 android:layout_width="140dp"
                                 android:layout_height="140dp"
                                 android:layout_gravity="center"
-                                android:scaleType="centerCrop"
                                 android:background="@drawable/cricle_background"
                                 android:backgroundTint="@color/place_autocomplete_search_hint"
-                                android:tint="@color/common_google_signin_btn_text_light_focused"
+                                android:scaleType="centerCrop"
                                 android:src="@drawable/profile_placeholder_foreground"
+                                android:tint="@color/common_google_signin_btn_text_light_focused"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
@@ -119,6 +135,8 @@
                                 <com.google.android.material.textfield.TextInputEditText
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
+                                    android:afterTextChanged="@{(editable) -> signUpViewModel.notifyChange()}"
+                                    android:text="@={signUpViewModel.signUpData.firstname}"
                                     android:inputType="text" />
 
                             </com.google.android.material.textfield.TextInputLayout>
@@ -140,7 +158,9 @@
                                 <com.google.android.material.textfield.TextInputEditText
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:inputType="text" />
+                                    android:inputType="text"
+                                    android:afterTextChanged="@{(editable) -> signUpViewModel.notifyChange()}"
+                                    android:text="@={signUpViewModel.signUpData.lastName}"/>
 
                             </com.google.android.material.textfield.TextInputLayout>
 
@@ -151,8 +171,8 @@
                             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
                             android:layout_marginStart="8dp"
+                            android:layout_marginTop="8dp"
                             android:layout_marginEnd="8dp"
                             android:layout_marginBottom="8dp"
                             android:hint="@string/reg_phone_number">
@@ -161,7 +181,9 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:inputType="phone"
-                                android:maxLength="10" />
+                                android:maxLength="10"
+                                android:afterTextChanged="@{(editable) -> signUpViewModel.notifyChange()}"
+                                android:text="@={signUpViewModel.signUpData.phoneNumber}"/>
 
                         </com.google.android.material.textfield.TextInputLayout>
 
@@ -180,6 +202,8 @@
                                 android:id="@+id/inner_password"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:afterTextChanged="@{(editable) -> signUpViewModel.notifyChange()}"
+                                android:text="@={signUpViewModel.signUpData.password}"
                                 android:inputType="textPassword" />
 
                         </com.google.android.material.textfield.TextInputLayout>
@@ -199,6 +223,8 @@
                                 android:id="@+id/inner_confirm_password"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:afterTextChanged="@{(editable) -> signUpViewModel.notifyChange()}"
+                                android:text="@={signUpViewModel.signUpData.confirm_password}"
                                 android:inputType="textPassword" />
 
                         </com.google.android.material.textfield.TextInputLayout>

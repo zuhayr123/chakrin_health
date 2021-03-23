@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.laaltentech.abou.fitnessapp.di.ViewModelKey
 import com.laaltentech.abou.fitnessapp.factory.AppModelFactory
 import com.laaltentech.abou.fitnessapp.game.observer.GameDataViewModel
+import com.laaltentech.abou.fitnessapp.login.viewmodels.SignUpViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
@@ -18,6 +19,11 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(GameDataViewModel::class)
     abstract fun bindGameDataViewModel(newGameDataViewModel: GameDataViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(SignUpViewModel::class)
+    abstract fun bindSignUpViewModel(newSignUpViewModel: SignUpViewModel): ViewModel
 
     @Binds
     abstract fun bindViewModelFactory(factory: AppModelFactory): ViewModelProvider.Factory
