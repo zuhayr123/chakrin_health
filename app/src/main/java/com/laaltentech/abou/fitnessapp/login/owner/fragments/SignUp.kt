@@ -8,11 +8,14 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.laaltentech.abou.fitnessapp.R
 import com.laaltentech.abou.fitnessapp.databinding.FragmentSignupBinding
 import com.laaltentech.abou.fitnessapp.di.Injectable
 import com.laaltentech.abou.fitnessapp.util.AppExecutors
 import javax.inject.Inject
+
 
 class SignUp : Fragment(), Injectable{
 
@@ -36,6 +39,13 @@ class SignUp : Fragment(), Injectable{
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         Log.e("Visible", "The view was visible")
         initLayoutAnim()
+        Glide.with(context)
+            .load(R.drawable.profile_placeholder_foreground)
+            .apply(
+                RequestOptions()
+                    .circleCrop()
+            )
+            .into(binding.addProfileImage)
         super.onActivityCreated(savedInstanceState)
     }
 
@@ -46,11 +56,6 @@ class SignUp : Fragment(), Injectable{
         binding.password.translationY = -1600f
         binding.confirmPassword.translationY = -1600f
         binding.regEmailId.translationY = -1600f
-        binding.addressLine3.translationY = -1600f
-        binding.addressLine2.translationY = -1600f
-        binding.addressLine1.translationY = -1600f
-        binding.industryName.translationY = -1600f
-        binding.chipGroup.translationY = -1600f
         binding.profileImageText.translationY = -1600f
         binding.addProfileImage.translationY = -1600f
 
@@ -62,19 +67,12 @@ class SignUp : Fragment(), Injectable{
             animate().translationYBy(1600f).duration = 850
         }
 
-        binding.chipGroup.apply {
-            animate().translationYBy(1600f).duration = 800
-        }
-        binding.industryName.apply {
-            animate().translationYBy(1600f).duration = 750
-        }
-
         binding.firstName.apply {
-            animate().translationYBy(1600f).duration = 700
+            animate().translationYBy(1600f).duration = 800
         }
 
         binding.lastName.apply {
-            animate().translationYBy(1600f).duration = 700
+            animate().translationYBy(1600f).duration = 750
         }
 
         binding.regPhoneNumber.apply {
@@ -91,18 +89,6 @@ class SignUp : Fragment(), Injectable{
 
         binding.regEmailId.apply {
             animate().translationYBy(1600f).duration = 500
-        }
-
-        binding.addressLine1.apply {
-            animate().translationYBy(1600f).duration = 450
-        }
-
-        binding.addressLine2.apply {
-            animate().translationYBy(1600f).duration = 400
-        }
-
-        binding.addressLine3.apply {
-            animate().translationYBy(1600f).duration = 350
         }
     }
 

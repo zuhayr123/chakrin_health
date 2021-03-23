@@ -1,5 +1,6 @@
 package com.laaltentech.abou.fitnessapp.login.owner.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.transition.TransitionInflater
 import com.laaltentech.abou.fitnessapp.R
+import com.laaltentech.abou.fitnessapp.bottomnav.owner.activity.BottomMainNavActivity
 import com.laaltentech.abou.fitnessapp.databinding.FragmentLoginBinding
 import com.laaltentech.abou.fitnessapp.di.Injectable
 import com.laaltentech.abou.fitnessapp.util.AppExecutors
@@ -44,6 +46,14 @@ class Login : Fragment(), Injectable{
             false)
         initLayoutAnim()
         return binding.root
+    }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        binding.login.setOnClickListener {
+            val intent  = Intent(activity, BottomMainNavActivity::class.java)
+            activity?.startActivity(intent)
+        }
+        super.onActivityCreated(savedInstanceState)
     }
 
     private fun initLayoutAnim(){
