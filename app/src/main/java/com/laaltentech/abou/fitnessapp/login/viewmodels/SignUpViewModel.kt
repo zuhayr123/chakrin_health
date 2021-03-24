@@ -1,11 +1,13 @@
 package com.laaltentech.abou.fitnessapp.login.viewmodels
 
+import android.util.Log
 import androidx.databinding.Observable
 import androidx.databinding.PropertyChangeRegistry
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
+import com.google.gson.Gson
 import com.laaltentech.abou.fitnessapp.login.data.SignUpData
 import com.laaltentech.abou.fitnessapp.login.repository.LoginRepository
 import com.laaltentech.abou.fitnessapp.network.Resource
@@ -42,11 +44,12 @@ class SignUpViewModel@Inject constructor(
         results = Transformations.switchMap(apiCall){
             when(apiCall.value){
                 "uploadUser" ->{
+                    Log.e("input ","Response_of_result ${Gson().toJson(signUpData)}")
                     repository.uploadUserDetails(signUpData, true)
                 }
 
                 "uploadPhoto" -> {
-                    repository.uploadProfileImage(part = prepareFilePart(signUpData.userPhoto, name = "userPhoto"))
+                    repository.uploadProfileImage(part = prepareFilePart(signUpData.userPhoto, name = "userPdf"))
                 }
 
                 else -> {

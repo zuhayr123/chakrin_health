@@ -33,7 +33,7 @@ class LoginRepository@Inject constructor(
             override fun loadFromDb(): LiveData<SignUpData>  = loginDAO.loadUserByPh(signUpData.phoneNumber)
 
             override fun createCall(): LiveData<ApiResponse<SignUpResponse>> {
-                return webService.insertUserData(url = URL_HUB.BASE_URL, data = signUpData)
+                return webService.insertUserData(url = URL_HUB.POST_USER_DETAILS, data = signUpData)
             }
 
             override fun uploadTag(): String?  = null

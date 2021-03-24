@@ -55,6 +55,7 @@ class SignUp : Fragment(), Injectable {
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
+        binding.signUpViewModel = signUpViewModel
         Log.e("Visible", "The view was visible")
         initLayoutAnim()
         viewModelInit()
@@ -165,6 +166,32 @@ class SignUp : Fragment(), Injectable {
                                 Toast.makeText(context, "Photo Uploaded", Toast.LENGTH_LONG).show()
                                 signUpViewModel.apiCall.value = "uploadUser"
                             }
+
+                            Status.LOADING -> {
+                                binding.submit.isEnabled = false
+                                binding.progress.progressBar.visibility = View.VISIBLE
+                                Toast.makeText(context, "Uploading your data please wait...", Toast.LENGTH_LONG ).show()
+                                Log.e("LOADING", "LOADING DATA PLEASE WAIT.....")
+                            }
+                            Status.ERROR -> {
+                                binding.submit.isEnabled = true
+                                binding.progress.progressBar.visibility = View.INVISIBLE
+                                if (Commons.isNetworkAvailable(requireContext())) {
+                                    try {
+                                        item.message?.let { msg ->
+                                            val response = Gson().fromJson(msg, SignUpResponse::class.java)
+                                            Toast.makeText(requireContext(), response.msg, Toast.LENGTH_LONG).show()
+                                        } ?: false
+
+                                    } catch (e: Exception) {
+                                        Toast.makeText(requireContext(), "Oops!! Something went wrong!!", Toast.LENGTH_LONG).show()
+                                    }
+
+                                } else {
+                                    Toast.makeText(activity, "No network available , comment later!", Toast.LENGTH_LONG).show()
+                                }
+                            }
+
                         }
                     }
                 }
