@@ -40,15 +40,33 @@ class LoginRepository@Inject constructor(
         }.asLiveData()
     }
 
+    fun loginAttempt(phoneNumber : String, password : String) : LiveData<Resource<SignUpData>>{
+        return object : NetworkBoundResource<SignUpData, SignUpResponse>(appExecutors){
+            var signUpData = SignUpData()
+            override fun saveCallResult(item: SignUpResponse) {
+                if(item.status == "success"){
+                    loginDAO.deleteAllLogin()
+                    signUpData = item.user!!
+                    loginDAO.insertUserData(signUpData)
+                }
+            }
+
+            override fun shouldFetch(data: SignUpData?): Boolean = true
+
+            override fun loadFromDb(): LiveData<SignUpData> = loginDAO.loadAll()
+
+            override fun createCall(): LiveData<ApiResponse<SignUpResponse>> {
+                return webService.loginUser(phoneNumber = phoneNumber, password = password, url = URL_HUB.TRY_LOGIN)
+            }
+
+            override fun uploadTag(): String? = null
+
+        }.asLiveData()
+    }
+
     fun uploadProfileImage(part : MultipartBody.Part) : LiveData<Resource<SignUpData>>{
         return object : NetworkBoundResource<SignUpData, PhotoUploadResponse>(appExecutors){
             override fun saveCallResult(item: PhotoUploadResponse) {
-//                if(item.status == "success"){
-//                    val signUpData = SignUpData()
-//                    signUpData.user_id = "01"
-//                    signUpData.userPhoto = item.photoRes?.url
-//                    loginDAO.insertUserData(signUpData)
-//                }
             }
 
             override fun shouldFetch(data: SignUpData?): Boolean  = true

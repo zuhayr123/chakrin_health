@@ -11,6 +11,9 @@ interface LoginDAO{
     @Query("SELECT * FROM SignUpData WHERE phoneNumber = :phoneNumber")
     fun loadUserByPh(phoneNumber : String?): LiveData<SignUpData>
 
+    @Query("DELETE FROM SignUpData ")
+    fun deleteAllLogin()
+
     @Query("SELECT * FROM SignUpData")
     fun loadAll(): LiveData<SignUpData>
 

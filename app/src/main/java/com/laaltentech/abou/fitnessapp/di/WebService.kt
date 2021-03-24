@@ -21,6 +21,11 @@ interface WebService {
     fun insertUserData(@Url url:String,
                         @Body data: SignUpData) : LiveData<ApiResponse<SignUpResponse>>
 
+    @GET
+    fun loginUser( @Url url: String,
+                          @Query("phone_number") phoneNumber : String,
+                          @Query("password") password : String) : LiveData<ApiResponse<SignUpResponse>>
+
     @POST
     @Multipart
     fun uploadProfileImage(
