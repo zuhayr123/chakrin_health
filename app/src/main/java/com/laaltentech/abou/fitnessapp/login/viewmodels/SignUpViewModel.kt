@@ -44,7 +44,7 @@ class SignUpViewModel@Inject constructor(
         results = Transformations.switchMap(apiCall){
             when(apiCall.value){
                 "uploadUser" ->{
-                    Log.e("input ","Response_of_result ${Gson().toJson(signUpData)}")
+                    Log.e("Data", "the data to be uploaded is ${Gson().toJson(signUpData)}")
                     repository.uploadUserDetails(signUpData, true)
                 }
 

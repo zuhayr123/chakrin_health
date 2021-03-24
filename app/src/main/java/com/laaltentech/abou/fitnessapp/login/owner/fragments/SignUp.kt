@@ -160,7 +160,7 @@ class SignUp : Fragment(), Injectable {
                         when (item.status) {
                             Status.SUCCESS -> {
                                 binding.submit.isEnabled = true
-                                signUpViewModel.signUpData.user_id = item.data?.user_id
+                                Log.e("Data", "The data received is ${item.data?.userPhoto} & user id is ${item.data?.user_id}")
                                 signUpViewModel.signUpData.userPhoto = item.data?.userPhoto
                                 binding.progress.progressBar.visibility = View.INVISIBLE
                                 Toast.makeText(context, "Photo Uploaded", Toast.LENGTH_LONG).show()

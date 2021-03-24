@@ -13,6 +13,7 @@ import com.laaltentech.abou.fitnessapp.util.AppExecutors
 import com.laaltentech.abou.fitnessapp.util.URL_HUB
 import okhttp3.MultipartBody
 import javax.inject.Inject
+import kotlin.math.sign
 
 class LoginRepository@Inject constructor(
     private val webService: WebService,
@@ -22,10 +23,8 @@ class LoginRepository@Inject constructor(
     fun uploadUserDetails ( signUpData: SignUpData, uploadStatus : Boolean) : LiveData<Resource<SignUpData>>{
         return object : NetworkBoundResource<SignUpData, SignUpResponse>(appExecutors){
             override fun saveCallResult(item: SignUpResponse) {
-                if(item.status == "success") {
-                    signUpData.user_id = item.user?.user_id
-                    loginDAO.updateUserData(signUpData)
-                }
+                signUpData.user_id = "01"
+                loginDAO.insertUserData(signUpData)
             }
 
             override fun shouldFetch(data: SignUpData?): Boolean = uploadStatus
@@ -44,16 +43,17 @@ class LoginRepository@Inject constructor(
     fun uploadProfileImage(part : MultipartBody.Part) : LiveData<Resource<SignUpData>>{
         return object : NetworkBoundResource<SignUpData, PhotoUploadResponse>(appExecutors){
             override fun saveCallResult(item: PhotoUploadResponse) {
-                if(item.status == "success"){
-                    val signUpData = SignUpData()
-                    signUpData.userPhoto = item.photoRes?.url
-                    loginDAO.insertUserData(signUpData)
-                }
+//                if(item.status == "success"){
+//                    val signUpData = SignUpData()
+//                    signUpData.user_id = "01"
+//                    signUpData.userPhoto = item.photoRes?.url
+//                    loginDAO.insertUserData(signUpData)
+//                }
             }
 
             override fun shouldFetch(data: SignUpData?): Boolean  = true
 
-            override fun loadFromDb(): LiveData<SignUpData>  = loginDAO.loadUserByPh(phoneNumber = "12312")
+            override fun loadFromDb(): LiveData<SignUpData>  = loginDAO.loadAll()
 
             override fun createCall(): LiveData<ApiResponse<PhotoUploadResponse>> {
                 return webService.uploadProfileImage(url = URL_HUB.PIC_UPLOAD_URL, images = part )
