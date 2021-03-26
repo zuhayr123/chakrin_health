@@ -1,5 +1,7 @@
 package com.laaltentech.abou.fitnessapp.bottomnav.owner.fragments
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -14,6 +16,7 @@ import com.laaltentech.abou.fitnessapp.di.Injectable
 import com.laaltentech.abou.fitnessapp.util.AppExecutors
 import com.laaltentech.abou.fitnessapp.util.FragmentDataBindingComponent
 import javax.inject.Inject
+
 
 class MeditateFragment : Fragment(), Injectable {
     @Inject
@@ -36,5 +39,61 @@ class MeditateFragment : Fragment(), Injectable {
 
         binding.lifecycleOwner = viewLifecycleOwner
         return binding.root
+    }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        binding.card1.setOnClickListener {
+            startActivity(
+                Intent(
+                    Intent.ACTION_VIEW,
+                    Uri.parse("https://www.youtube.com/watch?v=_hIFF8G-BG0")
+                )
+            )
+        }
+
+        binding.card2.setOnClickListener {
+            startActivity(
+                Intent(
+                    Intent.ACTION_VIEW,
+                    Uri.parse("https://www.youtube.com/watch?v=iNNsLYog7RQ")
+                )
+            )
+        }
+
+        binding.card3.setOnClickListener {
+            startActivity(
+                Intent(
+                    Intent.ACTION_VIEW,
+                    Uri.parse("https://www.youtube.com/watch?v=RqfkrZA_ie0")
+                )
+            )
+        }
+
+        binding.card4.setOnClickListener {
+            startActivity(
+                Intent(
+                    Intent.ACTION_VIEW,
+                    Uri.parse("https://www.youtube.com/watch?v=oAPCPjnU1wA&t=106s")
+                )
+            )
+        }
+
+        binding.card5.setOnClickListener {
+            startActivity(
+                Intent(
+                    Intent.ACTION_VIEW,
+                    Uri.parse("https://www.youtube.com/watch?v=Auo8veVyRIY")
+                )
+            )
+        }
+        binding.materialButton.setOnClickListener {
+            startActivity(
+                Intent(
+                    Intent.ACTION_VIEW,
+                    Uri.parse("http://www.youtube.com/watch?v=Hxy8BZGQ5Jo")
+                )
+            )
+        }
+        super.onActivityCreated(savedInstanceState)
     }
 }
