@@ -12,7 +12,28 @@
         android:label="Home" >
         <action
             android:id="@+id/action_navigation_home_to_glutesFragment"
-            app:destination="@id/glutesFragment" />
+            app:destination="@id/glutesFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out" />
+        <action
+            android:id="@+id/action_navigation_home_to_fullBodyWorkout"
+            app:destination="@id/fullBodyWorkout"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out" />
+        <action
+            android:id="@+id/action_navigation_home_to_upperBodyWorkout"
+            app:destination="@id/upperBodyWorkout"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out" />
+        <action
+            android:id="@+id/action_navigation_home_to_fragmentOthersWorkout"
+            app:destination="@id/fragmentOthersWorkout" />
     </fragment>
     <fragment
         android:id="@+id/navigation_meditate"
@@ -29,4 +50,17 @@
         tools:layout="@layout/fragment_glutes_layout"
         android:name="com.laaltentech.abou.fitnessapp.bottomnav.owner.fragments.GlutesFragment"
         android:label="GlutesFragment" />
+    <fragment
+        android:id="@+id/fullBodyWorkout"
+        tools:layout="@layout/fragment_full_body_layout"
+        android:name="com.laaltentech.abou.fitnessapp.bottomnav.owner.fragments.FullBodyWorkout"
+        android:label="FullBodyWorkout" />
+    <fragment
+        android:id="@+id/upperBodyWorkout"
+        android:name="com.laaltentech.abou.fitnessapp.bottomnav.owner.fragments.UpperBodyWorkout"
+        android:label="UpperBodyWorkout" />
+    <fragment
+        android:id="@+id/fragmentOthersWorkout"
+        android:name="com.laaltentech.abou.fitnessapp.bottomnav.owner.fragments.FragmentOthersWorkout"
+        android:label="FragmentOthersWorkout" />
 </navigation>

@@ -8,15 +8,15 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.findNavController
 import com.laaltentech.abou.fitnessapp.R
-import com.laaltentech.abou.fitnessapp.databinding.FragmentHomeBinding
+import com.laaltentech.abou.fitnessapp.databinding.FragmentFullBodyLayoutBinding
+import com.laaltentech.abou.fitnessapp.databinding.FragmentGlutesLayoutBinding
 import com.laaltentech.abou.fitnessapp.di.Injectable
 import com.laaltentech.abou.fitnessapp.util.AppExecutors
 import com.laaltentech.abou.fitnessapp.util.FragmentDataBindingComponent
 import javax.inject.Inject
 
-class HomeFragment : Fragment(), Injectable {
+class FullBodyWorkout : Fragment(), Injectable {
     @Inject
     lateinit var appExecutors: AppExecutors
 
@@ -25,14 +25,14 @@ class HomeFragment : Fragment(), Injectable {
 
     var dataBindingComponent = FragmentDataBindingComponent(this)
 
-    lateinit var binding: FragmentHomeBinding
+    lateinit var binding: FragmentFullBodyLayoutBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false, dataBindingComponent)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_full_body_layout, container, false, dataBindingComponent)
         (activity as AppCompatActivity).supportActionBar!!.show()
 
         binding.lifecycleOwner = viewLifecycleOwner
@@ -40,25 +40,6 @@ class HomeFragment : Fragment(), Injectable {
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
-        binding.glutesClick.setOnClickListener {
-            val action = HomeFragmentDirections.actionNavigationHomeToGlutesFragment()
-            findNavController().navigate(action)
-        }
-
-        binding.fullBodyWorkout.setOnClickListener {
-            val action = HomeFragmentDirections.actionNavigationHomeToFullBodyWorkout()
-            findNavController().navigate(action)
-        }
-
-        binding.upperBodyWork.setOnClickListener {
-            val action = HomeFragmentDirections.actionNavigationHomeToUpperBodyWorkout()
-            findNavController().navigate(action)
-        }
-
-        binding.others.setOnClickListener {
-            val action = HomeFragmentDirections.actionNavigationHomeToFragmentOthersWorkout()
-            findNavController().navigate(action)
-        }
         super.onActivityCreated(savedInstanceState)
     }
 }
