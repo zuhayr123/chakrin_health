@@ -36,4 +36,23 @@ class BottomNavMainRepository@Inject constructor(
         }.asLiveData()
     }
 
+    fun updateSubscribeStatus(phoneNumber: String) : LiveData<Resource<ProfileData>>{
+        return object : NetworkBoundResource<ProfileData, ProfileResponse>(appExecutors){
+            override fun saveCallResult(item: ProfileResponse) {
+                if(item.status == "success" && item.user != null){
+                    bottomNavDAO.updateTour(isSub = true, phoneNumber = phoneNumber)
+                }
+            }
+
+            override fun shouldFetch(data: ProfileData?): Boolean = true
+
+            override fun loadFromDb(): LiveData<ProfileData>  = bottomNavDAO.loadUserByPh(phoneNumber)
+
+            override fun createCall(): LiveData<ApiResponse<ProfileResponse>> =  webService.updateIsSub(phoneNumber = phoneNumber, url = URL_HUB.UPDATE_SUB)
+
+            override fun uploadTag(): String? = null
+
+        }.asLiveData()
+    }
+
 }

@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.laaltentech.abou.fitnessapp.R
 import com.laaltentech.abou.fitnessapp.databinding.FragmentMeditateBinding
 import com.laaltentech.abou.fitnessapp.di.Injectable
@@ -87,12 +88,8 @@ class MeditateFragment : Fragment(), Injectable {
             )
         }
         binding.materialButton.setOnClickListener {
-            startActivity(
-                Intent(
-                    Intent.ACTION_VIEW,
-                    Uri.parse("http://www.youtube.com/watch?v=Hxy8BZGQ5Jo")
-                )
-            )
+            val action = MeditateFragmentDirections.actionNavigationMeditateToFragmentSubscribeCheck()
+            findNavController().navigate(action)
         }
         super.onActivityCreated(savedInstanceState)
     }

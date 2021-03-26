@@ -17,7 +17,7 @@ import com.laaltentech.abou.fitnessapp.login.data.SignUpData
     (IndividualGameScore::class),
     (SignUpData::class),
     (ProfileData::class)
-], version = 2, exportSchema = false)
+], version = 3, exportSchema = false)
 
 @TypeConverters(DateConverter::class)
 

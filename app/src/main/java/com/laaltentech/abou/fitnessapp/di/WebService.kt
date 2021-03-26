@@ -1,6 +1,7 @@
 package com.laaltentech.abou.fitnessapp.di
 
 import androidx.lifecycle.LiveData
+import com.laaltentech.abou.fitnessapp.bottomnav.data.ProfileData
 import com.laaltentech.abou.fitnessapp.bottomnav.data.ProfileResponse
 import com.laaltentech.abou.fitnessapp.game.data.GameData
 import com.laaltentech.abou.fitnessapp.game.data.GameDataResponse
@@ -30,6 +31,10 @@ interface WebService {
     @GET
     fun fetchProfileData(@Url url: String,
                          @Query("phone_number") phoneNumber: String) : LiveData<ApiResponse<ProfileResponse>>
+
+    @PUT
+    fun updateIsSub(@Url url: String,
+                        @Query("phone_number") phoneNumber: String): LiveData<ApiResponse<ProfileResponse>>
 
     @POST
     @Multipart

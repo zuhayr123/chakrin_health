@@ -52,4 +52,7 @@ abstract class FragmentModule {
 
     @ContributesAndroidInjector
     abstract fun contributeFragmentOthersWorkout(): FragmentOthersWorkout
+
+    @ContributesAndroidInjector
+    abstract fun contributeFragmentSubscribeCheck(): FragmentSubscribeCheck
 }

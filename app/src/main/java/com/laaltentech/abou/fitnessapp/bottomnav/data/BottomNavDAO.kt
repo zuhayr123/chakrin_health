@@ -15,4 +15,7 @@ interface BottomNavDAO{
     @Query("SELECT * FROM ProfileData WHERE phoneNumber = :phoneNumber")
     fun loadUserByPh(phoneNumber : String?): LiveData<ProfileData>
 
+    @Query("UPDATE ProfileData SET isSub = :isSub WHERE phoneNumber = :phoneNumber")
+    fun updateTour(phoneNumber: String, isSub: Boolean?) : Int
+
 }

@@ -39,7 +39,11 @@
         android:id="@+id/navigation_meditate"
         tools:layout="@layout/fragment_meditate"
         android:name="com.laaltentech.abou.fitnessapp.bottomnav.owner.fragments.MeditateFragment"
-        android:label="Subscribe" />
+        android:label="Subscribe" >
+        <action
+            android:id="@+id/action_navigation_meditate_to_fragmentSubscribeCheck"
+            app:destination="@id/fragmentSubscribeCheck" />
+    </fragment>
     <fragment
         android:id="@+id/navigation_profile"
         tools:layout="@layout/fragment_profile"
@@ -49,18 +53,38 @@
         android:id="@+id/glutesFragment"
         tools:layout="@layout/fragment_glutes_layout"
         android:name="com.laaltentech.abou.fitnessapp.bottomnav.owner.fragments.GlutesFragment"
-        android:label="GlutesFragment" />
+        android:label="GlutesFragment" >
+        <action
+            android:id="@+id/action_glutesFragment_to_fragmentSubscribeCheck"
+            app:destination="@id/fragmentSubscribeCheck" />
+    </fragment>
     <fragment
         android:id="@+id/fullBodyWorkout"
         tools:layout="@layout/fragment_full_body_layout"
         android:name="com.laaltentech.abou.fitnessapp.bottomnav.owner.fragments.FullBodyWorkout"
-        android:label="FullBodyWorkout" />
+        android:label="FullBodyWorkout" >
+        <action
+            android:id="@+id/action_fullBodyWorkout_to_fragmentSubscribeCheck"
+            app:destination="@id/fragmentSubscribeCheck" />
+    </fragment>
     <fragment
         android:id="@+id/upperBodyWorkout"
         android:name="com.laaltentech.abou.fitnessapp.bottomnav.owner.fragments.UpperBodyWorkout"
-        android:label="UpperBodyWorkout" />
+        android:label="UpperBodyWorkout" >
+        <action
+            android:id="@+id/action_upperBodyWorkout_to_fragmentSubscribeCheck"
+            app:destination="@id/fragmentSubscribeCheck" />
+    </fragment>
     <fragment
         android:id="@+id/fragmentOthersWorkout"
         android:name="com.laaltentech.abou.fitnessapp.bottomnav.owner.fragments.FragmentOthersWorkout"
-        android:label="FragmentOthersWorkout" />
+        android:label="FragmentOthersWorkout" >
+        <action
+            android:id="@+id/action_fragmentOthersWorkout_to_fragmentSubscribeCheck"
+            app:destination="@id/fragmentSubscribeCheck" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentSubscribeCheck"
+        android:name="com.laaltentech.abou.fitnessapp.bottomnav.owner.fragments.FragmentSubscribeCheck"
+        android:label="FragmentSubscribeCheck" />
 </navigation>

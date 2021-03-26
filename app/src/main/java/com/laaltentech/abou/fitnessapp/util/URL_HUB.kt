@@ -13,6 +13,7 @@ class URL_HUB{
         val INSERT_NEW_ORDERS = BASE_URL +"orders"
         val FETCH_ORDERS_BY_ORDER_ID = BASE_URL +"orders_by_orderID"
         val UPDATE_ORDERS = BASE_URL +"orders"
+        val UPDATE_SUB = BASE_URL +"sub"
         val FETCH_PROFILE = BASE_URL +"profile"
         val FETCH_IMAGES = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=dd4a16666bdf3c2180b43bec8dd1534a&format=json&nojsoncallback=1&per_page=10&extras=description, license, date_upload, date_taken, owner_name, icon_server, original_format, last_update, geo, tags, machine_tags, o_dims, views, media, path_alias, url_sq, url_t, url_s, url_q, url_m, url_n, url_z, url_c, url_l, url_o"
     }

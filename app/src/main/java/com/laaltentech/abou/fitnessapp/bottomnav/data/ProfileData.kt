@@ -28,4 +28,7 @@ class ProfileData {
 
     @SerializedName("user_photo")
     var userPhoto: String? = null
+
+    @SerializedName("is_sub")
+    var isSub: Boolean? = false
 }
