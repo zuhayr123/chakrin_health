@@ -53,7 +53,7 @@ class LoginRepository@Inject constructor(
 
             override fun shouldFetch(data: SignUpData?): Boolean = true
 
-            override fun loadFromDb(): LiveData<SignUpData> = loginDAO.loadAll()
+            override fun loadFromDb(): LiveData<SignUpData> = loginDAO.loadUserByPh(phoneNumber = phoneNumber)
 
             override fun createCall(): LiveData<ApiResponse<SignUpResponse>> {
                 return webService.loginUser(phoneNumber = phoneNumber, password = password, url = URL_HUB.TRY_LOGIN)

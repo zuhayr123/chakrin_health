@@ -23,6 +23,7 @@ import com.laaltentech.abou.fitnessapp.login.data.SignUpResponse
 import com.laaltentech.abou.fitnessapp.login.viewmodels.LoginViewModel
 import com.laaltentech.abou.fitnessapp.network.Status
 import com.laaltentech.abou.fitnessapp.util.AppExecutors
+import com.laaltentech.abou.fitnessapp.util.CONSTANTS
 import com.laaltentech.abou.fitnessapp.util.Commons
 import io.alterac.blurkit.BlurKit
 import javax.inject.Inject
@@ -64,6 +65,7 @@ class Login : Fragment(), Injectable{
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
+
         viewModelInit()
         binding.loginViewModel = loginViewModel
 
@@ -79,6 +81,12 @@ class Login : Fragment(), Injectable{
             it.results.observe(viewLifecycleOwner, Observer {item ->
                 when(item.status){
                     Status.SUCCESS -> {
+                        val sharedPref = requireActivity().getSharedPreferences("pref", Context.MODE_PRIVATE)
+                        with(sharedPref.edit()) {
+                            Log.e("User", "The phone number is ${it.phoneNumber}")
+                            putString(CONSTANTS.PHONE_NUMBER, it.phoneNumber)
+                            commit()
+                        }
                         val intent  = Intent(activity, BottomMainNavActivity::class.java)
                         activity?.startActivity(intent)
                         Toast.makeText(context, "Successfully logged in ", Toast.LENGTH_LONG ).show()

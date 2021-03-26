@@ -2,6 +2,7 @@ package com.laaltentech.abou.fitnessapp.di.module
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.laaltentech.abou.fitnessapp.bottomnav.observer.ProfileViewModel
 import com.laaltentech.abou.fitnessapp.di.ViewModelKey
 import com.laaltentech.abou.fitnessapp.factory.AppModelFactory
 import com.laaltentech.abou.fitnessapp.game.observer.GameDataViewModel
@@ -30,6 +31,11 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(LoginViewModel::class)
     abstract fun bindLoginViewModel(newLoginViewModel: LoginViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(ProfileViewModel::class)
+    abstract fun bindProfileViewModel(newProfileViewModel: ProfileViewModel): ViewModel
 
     @Binds
     abstract fun bindViewModelFactory(factory: AppModelFactory): ViewModelProvider.Factory

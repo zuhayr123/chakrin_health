@@ -1,5 +1,8 @@
 package com.laaltentech.abou.fitnessapp.di.module
 
+import com.laaltentech.abou.fitnessapp.bottomnav.data.BottomNavDAO
+import com.laaltentech.abou.fitnessapp.bottomnav.owner.activity.BottomMainNavActivity
+import com.laaltentech.abou.fitnessapp.bottomnav.repository.BottomNavMainRepository
 import com.laaltentech.abou.fitnessapp.di.WebService
 import com.laaltentech.abou.fitnessapp.game.data.GameDAO
 import com.laaltentech.abou.fitnessapp.game.repository.GameDataRepository
@@ -25,6 +28,12 @@ class RepositoryModule {
     @Singleton
     fun provideLoginRepository(webservice: WebService, dao: LoginDAO, executor: AppExecutors): LoginRepository {
         return LoginRepository(webService = webservice, loginDAO = dao, appExecutors = executor)
+    }
+
+    @Provides
+    @Singleton
+    fun provideBottomNavMainRepository(webservice: WebService, dao: BottomNavDAO, executor: AppExecutors): BottomNavMainRepository {
+        return BottomNavMainRepository(webService = webservice, bottomNavDAO = dao, appExecutors = executor)
     }
 
 }

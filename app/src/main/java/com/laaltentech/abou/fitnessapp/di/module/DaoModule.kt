@@ -38,7 +38,11 @@ class DaoModule {
 
     @Provides
     @Singleton
-    fun provideLoginDAO(database: MasterDatabase) = database.loginDAO() //todo add Dao here in future
+    fun provideLoginDAO(database: MasterDatabase) = database.loginDAO()
+
+    @Provides
+    @Singleton
+    fun provideBottomNavDAO(database: MasterDatabase) = database.bottomNavDAO()
 
     @Provides
     @Singleton
