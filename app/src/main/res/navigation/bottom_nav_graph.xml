@@ -9,7 +9,11 @@
         android:id="@+id/navigation_home"
         tools:layout="@layout/fragment_home"
         android:name="com.laaltentech.abou.fitnessapp.bottomnav.owner.fragments.HomeFragment"
-        android:label="Home" />
+        android:label="Home" >
+        <action
+            android:id="@+id/action_navigation_home_to_glutesFragment"
+            app:destination="@id/glutesFragment" />
+    </fragment>
     <fragment
         android:id="@+id/navigation_meditate"
         tools:layout="@layout/fragment_meditate"
@@ -20,4 +24,9 @@
         tools:layout="@layout/fragment_profile"
         android:name="com.laaltentech.abou.fitnessapp.bottomnav.owner.fragments.ProfileFragment"
         android:label="Profile" />
+    <fragment
+        android:id="@+id/glutesFragment"
+        tools:layout="@layout/fragment_glutes_layout"
+        android:name="com.laaltentech.abou.fitnessapp.bottomnav.owner.fragments.GlutesFragment"
+        android:label="GlutesFragment" />
 </navigation>

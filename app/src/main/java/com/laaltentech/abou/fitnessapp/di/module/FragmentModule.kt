@@ -1,5 +1,6 @@
 package com.laaltentech.abou.fitnessapp.di.module
 
+import com.laaltentech.abou.fitnessapp.bottomnav.owner.fragments.GlutesFragment
 import com.laaltentech.abou.fitnessapp.bottomnav.owner.fragments.HomeFragment
 import com.laaltentech.abou.fitnessapp.bottomnav.owner.fragments.MeditateFragment
 import com.laaltentech.abou.fitnessapp.bottomnav.owner.fragments.ProfileFragment
@@ -42,4 +43,7 @@ abstract class FragmentModule {
 
     @ContributesAndroidInjector
     abstract fun contributeImageViewerFragment(): ImageViewerFragment
+
+    @ContributesAndroidInjector
+    abstract fun contributeGlutesFragment(): GlutesFragment
 }

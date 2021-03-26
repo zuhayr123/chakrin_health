@@ -151,6 +151,9 @@
                         <com.google.android.material.card.MaterialCardView
                             android:layout_width="match_parent"
                             android:layout_height="120dp"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:id="@+id/glutes_click"
                             android:layout_margin="8dp">
 
                             <androidx.constraintlayout.widget.ConstraintLayout
