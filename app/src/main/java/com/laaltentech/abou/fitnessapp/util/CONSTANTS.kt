@@ -8,5 +8,7 @@ class CONSTANTS {
         val LAST_NAME = "lastName"
         val OWNER_TYPE = "ownerType"
         val PHONE_NUMBER = "phoneNumber"
+        val IS_SUB = "isSub"
+
     }
 }

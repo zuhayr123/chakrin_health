@@ -2,6 +2,7 @@ package com.laaltentech.abou.fitnessapp.bottomnav.owner.fragments
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,6 +14,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.fragment.findNavController
 import com.google.gson.Gson
 import com.laaltentech.abou.fitnessapp.R
 import com.laaltentech.abou.fitnessapp.bottomnav.observer.ProfileViewModel
@@ -88,6 +90,13 @@ class FragmentSubscribeCheck : Fragment(), Injectable {
                             "Successfully Subscribed!",
                             Toast.LENGTH_LONG
                         ).show()
+
+                        val sharedPref = requireActivity().getSharedPreferences("pref", Context.MODE_PRIVATE)
+                        with(sharedPref.edit()) {
+                            putBoolean(CONSTANTS.IS_SUB, true)
+                            commit()
+                        }
+                        findNavController().popBackStack()
                     }
 
                     Status.ERROR -> {

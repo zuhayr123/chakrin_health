@@ -85,6 +85,7 @@ class Login : Fragment(), Injectable{
                         with(sharedPref.edit()) {
                             Log.e("User", "The phone number is ${it.phoneNumber}")
                             putString(CONSTANTS.PHONE_NUMBER, it.phoneNumber)
+//                            putBoolean(CONSTANTS.IS_SUB, false)
                             commit()
                         }
                         val intent  = Intent(activity, BottomMainNavActivity::class.java)

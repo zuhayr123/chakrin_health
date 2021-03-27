@@ -1,8 +1,10 @@
 package com.laaltentech.abou.fitnessapp.bottomnav.owner.fragments
 
+import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,6 +17,7 @@ import com.laaltentech.abou.fitnessapp.R
 import com.laaltentech.abou.fitnessapp.databinding.FragmentMeditateBinding
 import com.laaltentech.abou.fitnessapp.di.Injectable
 import com.laaltentech.abou.fitnessapp.util.AppExecutors
+import com.laaltentech.abou.fitnessapp.util.CONSTANTS
 import com.laaltentech.abou.fitnessapp.util.FragmentDataBindingComponent
 import javax.inject.Inject
 
@@ -43,6 +46,23 @@ class MeditateFragment : Fragment(), Injectable {
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
+
+        val sharedPref = this.activity!!.getSharedPreferences("pref", Context.MODE_PRIVATE)
+        val isSub = sharedPref.getBoolean(CONSTANTS.IS_SUB, false)
+
+        Log.e("isSub", "The value of is sub is $isSub")
+
+        if(isSub){
+            binding.materialButton.visibility = View.GONE
+            binding.placeHolder.visibility = View.GONE
+            binding.subData.visibility = View.VISIBLE
+        }
+        else{
+            binding.placeHolder.visibility = View.VISIBLE
+            binding.subData.visibility = View.GONE
+            binding.materialButton.visibility = View.VISIBLE
+        }
+
         binding.card1.setOnClickListener {
             startActivity(
                 Intent(
