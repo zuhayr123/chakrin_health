@@ -49,9 +49,6 @@ class LoginOrSignupChoose : Fragment(), Injectable {
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
-
-        askForPermission(Manifest.permission.CAMERA, MediaRecorder.VideoSource.CAMERA)
-
         super.onActivityCreated(savedInstanceState)
         initLayoutAnim()
 
@@ -64,6 +61,9 @@ class LoginOrSignupChoose : Fragment(), Injectable {
             val action = LoginOrSignupChooseDirections.actionFragmentLoginOrSignupToSignUp2()
             findNavController().navigate(action)
         }
+
+        askForPermission(Manifest.permission.CAMERA, MediaRecorder.VideoSource.CAMERA)
+
     }
 
     private fun askForPermission(permission: String, requestCode: Int?) {

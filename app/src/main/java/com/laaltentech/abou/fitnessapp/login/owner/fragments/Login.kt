@@ -73,12 +73,46 @@ class Login : Fragment(), Injectable{
 
         viewModelInit()
         binding.loginViewModel = loginViewModel
-
+        askForPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE,101 )
+        askForPermission(Manifest.permission.READ_EXTERNAL_STORAGE,102 )
         binding.login.setOnClickListener{
             loginViewModel.apiCall.value = "login"
             Log.e("Login button", "Was tried to be clicked and context was " + activity.toString())
         }
         super.onActivityCreated(savedInstanceState)
+    }
+
+    private fun askForPermission(permission: String, requestCode: Int?) {
+        if (ContextCompat.checkSelfPermission(
+                requireContext(),
+                permission
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
+
+            // Should we show an explanation?
+            if (ActivityCompat.shouldShowRequestPermissionRationale(
+                    requireActivity(),
+                    permission
+                )
+            ) {
+
+                //This is called if user has denied the permission before
+                //In this case I am just asking the permission again
+                ActivityCompat.requestPermissions(
+                    requireActivity(),
+                    arrayOf(permission),
+                    requestCode!!
+                )
+
+            } else {
+
+                ActivityCompat.requestPermissions(
+                    requireActivity(),
+                    arrayOf(permission),
+                    requestCode!!
+                )
+            }
+        }
     }
 
     fun viewModelInit(){
