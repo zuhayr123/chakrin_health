@@ -13,17 +13,22 @@ import com.laaltentech.abou.fitnessapp.util.AppExecutors
 import com.laaltentech.abou.fitnessapp.util.URL_HUB
 import okhttp3.MultipartBody
 import javax.inject.Inject
-import kotlin.math.sign
 
 class LoginRepository@Inject constructor(
     private val webService: WebService,
     private val appExecutors: AppExecutors,
     private val loginDAO: LoginDAO
 ){
+
+    companion object{
+        var photoUrl : String = ""
+    }
+
     fun uploadUserDetails ( signUpData: SignUpData, uploadStatus : Boolean) : LiveData<Resource<SignUpData>>{
         return object : NetworkBoundResource<SignUpData, SignUpResponse>(appExecutors){
             override fun saveCallResult(item: SignUpResponse) {
                 signUpData.user_id = "01"
+                signUpData.userPhoto = photoUrl
                 loginDAO.insertUserData(signUpData)
             }
 
@@ -32,6 +37,7 @@ class LoginRepository@Inject constructor(
             override fun loadFromDb(): LiveData<SignUpData>  = loginDAO.loadUserByPh(signUpData.phoneNumber)
 
             override fun createCall(): LiveData<ApiResponse<SignUpResponse>> {
+                signUpData.userPhoto = photoUrl
                 return webService.insertUserData(url = URL_HUB.POST_USER_DETAILS, data = signUpData)
             }
 
@@ -42,8 +48,8 @@ class LoginRepository@Inject constructor(
 
     fun loginAttempt(phoneNumber : String, password : String) : LiveData<Resource<SignUpData>>{
         return object : NetworkBoundResource<SignUpData, SignUpResponse>(appExecutors){
-            var signUpData = SignUpData()
             override fun saveCallResult(item: SignUpResponse) {
+                val signUpData: SignUpData
                 if(item.status == "success"){
                     loginDAO.deleteAllLogin()
                     signUpData = item.user!!
@@ -67,6 +73,7 @@ class LoginRepository@Inject constructor(
     fun uploadProfileImage(part : MultipartBody.Part) : LiveData<Resource<SignUpData>>{
         return object : NetworkBoundResource<SignUpData, PhotoUploadResponse>(appExecutors){
             override fun saveCallResult(item: PhotoUploadResponse) {
+                photoUrl = item.photoRes?.url!!
             }
 
             override fun shouldFetch(data: SignUpData?): Boolean  = true
