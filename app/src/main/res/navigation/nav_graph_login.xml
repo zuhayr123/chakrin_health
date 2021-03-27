@@ -2,7 +2,7 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/splash_fragment"
-    app:startDestination="@id/fragment_login_or_signup">
+    app:startDestination="@id/fragmentSplashScreen">
 
     <fragment
         android:id="@+id/fragment_login_or_signup"
@@ -23,5 +23,13 @@
         android:id="@+id/signUp2"
         android:name="com.laaltentech.abou.fitnessapp.login.owner.fragments.SignUp"
         android:label="SignUp" />
+    <fragment
+        android:id="@+id/fragmentSplashScreen"
+        android:name="com.laaltentech.abou.fitnessapp.login.owner.fragments.FragmentSplashScreen"
+        android:label="FragmentSplashScreen" >
+        <action
+            android:id="@+id/action_fragmentSplashScreen_to_fragment_login_or_signup"
+            app:destination="@id/fragment_login_or_signup" />
+    </fragment>
 
 </navigation>

@@ -4,6 +4,7 @@ import com.laaltentech.abou.fitnessapp.bottomnav.owner.fragments.*
 import com.laaltentech.abou.fitnessapp.cameraX.fragments.CameraClickFragment
 import com.laaltentech.abou.fitnessapp.cameraX.fragments.ImageViewerFragment
 import com.laaltentech.abou.fitnessapp.game.owner.fragments.GameInstructionsFragment
+import com.laaltentech.abou.fitnessapp.login.owner.fragments.FragmentSplashScreen
 import com.laaltentech.abou.fitnessapp.login.owner.fragments.Login
 import com.laaltentech.abou.fitnessapp.login.owner.fragments.LoginOrSignupChoose
 import com.laaltentech.abou.fitnessapp.login.owner.fragments.SignUp
@@ -55,4 +56,7 @@ abstract class FragmentModule {
 
     @ContributesAndroidInjector
     abstract fun contributeFragmentSubscribeCheck(): FragmentSubscribeCheck
+
+    @ContributesAndroidInjector
+    abstract fun contributeFragmentFlashLayoutBinding(): FragmentSplashScreen
 }
