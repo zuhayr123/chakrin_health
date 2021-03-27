@@ -15,6 +15,7 @@ import com.laaltentech.abou.fitnessapp.R
 import com.laaltentech.abou.fitnessapp.databinding.FragmentHomeBinding
 import com.laaltentech.abou.fitnessapp.di.Injectable
 import com.laaltentech.abou.fitnessapp.util.AppExecutors
+import com.laaltentech.abou.fitnessapp.util.CONSTANTS
 import com.laaltentech.abou.fitnessapp.util.FragmentDataBindingComponent
 import javax.inject.Inject
 
@@ -42,6 +43,13 @@ class HomeFragment : Fragment(), Injectable {
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
+
+        val sharedPref = this.activity!!.getSharedPreferences("pref", Context.MODE_PRIVATE)
+        val firstName = sharedPref.getString(CONSTANTS.FIRST_NAME, "")
+        if(!firstName.isNullOrEmpty()){
+            binding.textView.text = "Welcome $firstName!!"
+        }
+
         binding.glutesClick.setOnClickListener {
             val action = HomeFragmentDirections.actionNavigationHomeToGlutesFragment()
             findNavController().navigate(action)

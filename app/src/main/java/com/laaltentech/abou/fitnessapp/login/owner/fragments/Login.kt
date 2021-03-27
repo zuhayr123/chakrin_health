@@ -1,13 +1,18 @@
 package com.laaltentech.abou.fitnessapp.login.owner.fragments
 
+import android.Manifest
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.media.MediaRecorder
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -85,6 +90,8 @@ class Login : Fragment(), Injectable{
                         with(sharedPref.edit()) {
                             Log.e("User", "The phone number is ${it.phoneNumber}")
                             putString(CONSTANTS.PHONE_NUMBER, it.phoneNumber)
+                            Log.e("The first name is ", "${item.data?.firstname}")
+                            putString(CONSTANTS.FIRST_NAME, item.data?.firstname)
 //                            putBoolean(CONSTANTS.IS_SUB, false)
                             commit()
                         }

@@ -1,10 +1,15 @@
 package com.laaltentech.abou.fitnessapp.login.owner.fragments
 
+import android.Manifest
+import android.content.pm.PackageManager
+import android.media.MediaRecorder
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -44,6 +49,9 @@ class LoginOrSignupChoose : Fragment(), Injectable {
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
+
+        askForPermission(Manifest.permission.CAMERA, MediaRecorder.VideoSource.CAMERA)
+
         super.onActivityCreated(savedInstanceState)
         initLayoutAnim()
 
@@ -55,6 +63,39 @@ class LoginOrSignupChoose : Fragment(), Injectable {
         binding.signUp.setOnClickListener {
             val action = LoginOrSignupChooseDirections.actionFragmentLoginOrSignupToSignUp2()
             findNavController().navigate(action)
+        }
+    }
+
+    private fun askForPermission(permission: String, requestCode: Int?) {
+        if (ContextCompat.checkSelfPermission(
+                requireContext(),
+                permission
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
+
+            // Should we show an explanation?
+            if (ActivityCompat.shouldShowRequestPermissionRationale(
+                    requireActivity(),
+                    permission
+                )
+            ) {
+
+                //This is called if user has denied the permission before
+                //In this case I am just asking the permission again
+                ActivityCompat.requestPermissions(
+                    requireActivity(),
+                    arrayOf(permission),
+                    requestCode!!
+                )
+
+            } else {
+
+                ActivityCompat.requestPermissions(
+                    requireActivity(),
+                    arrayOf(permission),
+                    requestCode!!
+                )
+            }
         }
     }
 
