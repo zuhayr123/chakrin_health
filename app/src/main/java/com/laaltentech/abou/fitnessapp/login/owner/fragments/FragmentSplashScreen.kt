@@ -4,10 +4,12 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowManager
+import android.view.animation.AnimationUtils
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -19,6 +21,7 @@ import com.laaltentech.abou.fitnessapp.di.Injectable
 import com.laaltentech.abou.fitnessapp.util.AppExecutors
 import com.laaltentech.abou.fitnessapp.util.CONSTANTS
 import javax.inject.Inject
+
 
 class FragmentSplashScreen : Fragment(), Injectable {
 
@@ -39,30 +42,37 @@ class FragmentSplashScreen : Fragment(), Injectable {
             inflater,
             R.layout.fragment_flash_layout,
             container,
-            false)
+            false
+        )
         return binding.root
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+        activity?.window?.addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
 
-        activity?.actionBar?.hide()
+        (activity as AppCompatActivity?)!!.supportActionBar!!.hide()
         val sharedPref = this.activity!!.getSharedPreferences("pref", Context.MODE_PRIVATE)
         val phoneNumber = sharedPref.getString(CONSTANTS.PHONE_NUMBER, "")
 
         val h = Handler()
 
-        if(!phoneNumber.isNullOrBlank()){
+        if (!phoneNumber.isNullOrBlank()) {
             h.postDelayed(Runnable {
-                val intent  = Intent(context, BottomMainNavActivity::class.java)
+                val intent = Intent(context, BottomMainNavActivity::class.java)
                 this.startActivity(intent)
+                activity?.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
             }, 4500)
-        }
-        else{
+        } else {
             h.postDelayed(Runnable {
-                val action = FragmentSplashScreenDirections.actionFragmentSplashScreenToFragmentLoginOrSignup()
+                val action =
+                    FragmentSplashScreenDirections.actionFragmentSplashScreenToFragmentLoginOrSignup()
                 findNavController().navigate(action)
             }, 4500)
         }
+
+        binding.logoImage.startAnimation(
+            AnimationUtils.loadAnimation(activity, R.anim.rotate_indefinitely)
+        )
     }
 }

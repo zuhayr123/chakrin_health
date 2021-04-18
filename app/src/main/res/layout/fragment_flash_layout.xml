@@ -7,16 +7,28 @@
         android:layout_height="match_parent"
         android:id="@+id/rootConstraintLayoutLogin">
 
-        <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/small_med_2"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+        <ImageView
+            android:id="@+id/logo_image"
+            android:layout_width="400dp"
+            android:layout_height="400dp"
+            android:backgroundTint="@color/colorPrimary"
+            android:src="@drawable/logo_clip"
+            android:tint="@color/colorPrimary"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:lottie_autoPlay="true"
-            app:lottie_fileName="logo.json"
-            app:lottie_loop="true" />
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Chakrin Health"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/logo_image" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
