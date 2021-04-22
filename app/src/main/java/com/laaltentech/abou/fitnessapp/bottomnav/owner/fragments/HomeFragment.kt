@@ -5,6 +5,8 @@ import android.content.Context
 import android.os.Bundle
 import android.os.Handler
 import android.view.*
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -50,7 +52,11 @@ class HomeFragment : Fragment(), Injectable {
             binding.textView.text = "Welcome $firstName!!"
         }
 
-        binding.glutesClick.setOnClickListener {
+        binding.loader.startAnimation(
+            AnimationUtils.loadAnimation(activity, R.anim.rotate_but_not_fade)
+        )
+
+        binding.doshaClick.setOnClickListener {
             val action = HomeFragmentDirections.actionNavigationHomeToGlutesFragment()
             findNavController().navigate(action)
         }
