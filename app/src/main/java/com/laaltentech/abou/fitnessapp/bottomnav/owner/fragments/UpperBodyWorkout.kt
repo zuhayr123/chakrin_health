@@ -50,25 +50,15 @@ class UpperBodyWorkout : Fragment(), Injectable {
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             binding.scrollView.setOnScrollChangeListener { view, i, i2, i3, i4 ->
-                if(i4/9.28> 0 && i4/9.28 <100){
-                    binding.animBack.progress = (i4/9.28).toFloat()
-                    binding.animBack.setMaxFrame((i4/9.28).toInt())
-                    Log.e("Code", "REACHED HERE")
+                val height = (binding.mainView.height - binding.parentView.height).toFloat()
+                val perentagePosition = (i2.toFloat()/height) *100
+                if(perentagePosition >0 && perentagePosition <100.5){
+                    binding.animBack.progress = perentagePosition
+                    binding.animBack.setMaxFrame(perentagePosition.toInt()+31)
+
                 }
-                Log.e("SCROLL", "The value of i: $i and i2: $i2 and i3: $i3 and i4: ${(i4/9.28).toInt()}")
             }
         }
-//        if(isSub){
-//            binding.materialButton.visibility = View.GONE
-//        }
-//        else{
-//            binding.materialButton.visibility = View.VISIBLE
-//        }
-//
-//        binding.materialButton.setOnClickListener {
-//            val action = UpperBodyWorkoutDirections.actionUpperBodyWorkoutToFragmentSubscribeCheck()
-//            findNavController().navigate(action)
-//        }
         super.onActivityCreated(savedInstanceState)
     }
 }
