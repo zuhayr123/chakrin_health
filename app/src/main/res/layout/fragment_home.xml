@@ -209,7 +209,7 @@
                             android:layout_margin="8dp"
                             android:clickable="true"
                             android:focusable="true"
-                            android:id="@+id/full_body_workout">
+                            android:id="@+id/prakriti">
 
                             <androidx.constraintlayout.widget.ConstraintLayout
                                 android:layout_width="match_parent"
@@ -266,7 +266,7 @@
                             android:layout_margin="8dp"
                             android:clickable="true"
                             android:focusable="true"
-                            android:id="@+id/upper_body_work">
+                            android:id="@+id/dincharya">
 
                             <androidx.constraintlayout.widget.ConstraintLayout
                                 android:layout_width="match_parent"
@@ -323,7 +323,7 @@
                             android:layout_margin="8dp"
                             android:clickable="true"
                             android:focusable="true"
-                            android:id="@+id/others">
+                            android:id="@+id/ritucharya">
 
                             <androidx.constraintlayout.widget.ConstraintLayout
                                 android:layout_width="match_parent"

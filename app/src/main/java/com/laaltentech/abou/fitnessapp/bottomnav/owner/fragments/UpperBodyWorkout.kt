@@ -1,7 +1,9 @@
 package com.laaltentech.abou.fitnessapp.bottomnav.owner.fragments
 
 import android.content.Context
+import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -46,17 +48,27 @@ class UpperBodyWorkout : Fragment(), Injectable {
         val sharedPref = this.activity!!.getSharedPreferences("pref", Context.MODE_PRIVATE)
         val isSub = sharedPref.getBoolean(CONSTANTS.IS_SUB, false)
 
-        if(isSub){
-            binding.materialButton.visibility = View.GONE
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            binding.scrollView.setOnScrollChangeListener { view, i, i2, i3, i4 ->
+                if(i4/9.28> 0 && i4/9.28 <100){
+                    binding.animBack.progress = (i4/9.28).toFloat()
+                    binding.animBack.setMaxFrame((i4/9.28).toInt())
+                    Log.e("Code", "REACHED HERE")
+                }
+                Log.e("SCROLL", "The value of i: $i and i2: $i2 and i3: $i3 and i4: ${(i4/9.28).toInt()}")
+            }
         }
-        else{
-            binding.materialButton.visibility = View.VISIBLE
-        }
-
-        binding.materialButton.setOnClickListener {
-            val action = UpperBodyWorkoutDirections.actionUpperBodyWorkoutToFragmentSubscribeCheck()
-            findNavController().navigate(action)
-        }
+//        if(isSub){
+//            binding.materialButton.visibility = View.GONE
+//        }
+//        else{
+//            binding.materialButton.visibility = View.VISIBLE
+//        }
+//
+//        binding.materialButton.setOnClickListener {
+//            val action = UpperBodyWorkoutDirections.actionUpperBodyWorkoutToFragmentSubscribeCheck()
+//            findNavController().navigate(action)
+//        }
         super.onActivityCreated(savedInstanceState)
     }
 }

@@ -61,17 +61,17 @@ class HomeFragment : Fragment(), Injectable {
             findNavController().navigate(action)
         }
 
-        binding.fullBodyWorkout.setOnClickListener {
+        binding.prakriti.setOnClickListener {
             val action = HomeFragmentDirections.actionNavigationHomeToFullBodyWorkout()
             findNavController().navigate(action)
         }
 
-        binding.upperBodyWork.setOnClickListener {
+        binding.dincharya.setOnClickListener {
             val action = HomeFragmentDirections.actionNavigationHomeToUpperBodyWorkout()
             findNavController().navigate(action)
         }
 
-        binding.others.setOnClickListener {
+        binding.ritucharya.setOnClickListener {
             val action = HomeFragmentDirections.actionNavigationHomeToFragmentOthersWorkout()
             findNavController().navigate(action)
         }
