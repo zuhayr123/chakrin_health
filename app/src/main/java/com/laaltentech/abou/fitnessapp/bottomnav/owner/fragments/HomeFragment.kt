@@ -14,6 +14,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.laaltentech.abou.fitnessapp.R
+import com.laaltentech.abou.fitnessapp.bottomnav.owner.activity.BottomMainNavActivity
 import com.laaltentech.abou.fitnessapp.databinding.FragmentHomeBinding
 import com.laaltentech.abou.fitnessapp.di.Injectable
 import com.laaltentech.abou.fitnessapp.util.AppExecutors
@@ -45,6 +46,7 @@ class HomeFragment : Fragment(), Injectable {
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
+        (activity as (BottomMainNavActivity)).binding.navView.visibility = View.VISIBLE
 
         val sharedPref = this.activity!!.getSharedPreferences("pref", Context.MODE_PRIVATE)
         val firstName = sharedPref.getString(CONSTANTS.FIRST_NAME, "")

@@ -68,19 +68,20 @@ class GlutesFragment : Fragment(), Injectable {
             binding.textView18.startAnimation(AnimationUtils.loadAnimation(activity, R.anim.fade_accelerated_one_way))
             binding.textView19.startAnimation(AnimationUtils.loadAnimation(activity, R.anim.fade_accelerated_one_way))
             binding.textView21.startAnimation(AnimationUtils.loadAnimation(activity, R.anim.fade_accelerated_one_way))
+            binding.pittaImageView.startAnimation(AnimationUtils.loadAnimation(activity, R.anim.fade_accelerated_one_way))
             counterDosha +=1
             handler.postDelayed({
                 when(counterDosha){
                     1 -> {
-                        onImageButtonClick("vata")
+                        onImageButtonClick("vata", context = context!!)
                     }
 
                     2-> {
-                        onImageButtonClick("pitta")
+                        onImageButtonClick("pitta", context = context!!)
                     }
 
                     3-> {
-                        onImageButtonClick("kapha")
+                        onImageButtonClick("kapha", context = context!!)
                         counterDosha = 0
                     }
                 }
@@ -130,7 +131,7 @@ class GlutesFragment : Fragment(), Injectable {
 
                 5 -> {
                     binding.titleElement.text = "Water"
-                    binding.imageView.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.ic_wave))
+                    binding.imageView.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.ic_water))
                     binding.imageView.startAnimation(AnimationUtils.loadAnimation(activity, R.anim.fade_accelerated))
                     binding.titleElement.startAnimation(AnimationUtils.loadAnimation(activity, R.anim.fade_accelerated))
                     binding.view.startAnimation(AnimationUtils.loadAnimation(activity, R.anim.fade_accelerated))
@@ -143,7 +144,7 @@ class GlutesFragment : Fragment(), Injectable {
         }, delay)
     }
 
-    fun onImageButtonClick(dosha : String){
+    fun onImageButtonClick(dosha : String, context: Context){
 
         when(dosha){
             "pitta" -> {
@@ -151,6 +152,7 @@ class GlutesFragment : Fragment(), Injectable {
                 binding.textView19.text = "The elements of Akash & Vayu combine to make Vata. It is the energy of movement,inhalation & exhalation. It is light,dry,subtle & clear. Vata’s main site to dwell in the body is the Colon."
                 binding.textView21.text = "Excess of Vata causes – \n" +
                         "Dryness,cold,constipation,fatigue & insomnia.\n"
+                binding.pittaImageView.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.ic_pitta))
             }
 
             "kapha" -> {
@@ -158,6 +160,7 @@ class GlutesFragment : Fragment(), Injectable {
                 binding.textView19.text = "The elements of Jala & Prithvi combine to make Kapha. It maintains stability,weight,bodily fluids & lubrication of joints. It is cold,wet,heavy & dense. Kapha resides in the stomach."
                 binding.textView21.text = "Excess of Kapha causes – \n" +
                         "Accumulation of mucous,loss of appetite,desire to sleep,loose joints & feeling of heaviness.\n"
+                binding.pittaImageView.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.ic_kapha))
             }
 
             "vata" -> {
@@ -165,6 +168,7 @@ class GlutesFragment : Fragment(), Injectable {
                 binding.textView19.text = "The elements of Akash & Vayu combine to make Vata. It is the energy of movement,inhalation & exhalation. It is light,dry,subtle & clear. Vata’s main site to dwell in the body is the Colon."
                 binding.textView21.text = "Excess of Vata causes – \n" +
                         "Dryness,cold,constipation,fatigue & insomnia.\n"
+                binding.pittaImageView.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.ic_vata))
             }
         }
     }

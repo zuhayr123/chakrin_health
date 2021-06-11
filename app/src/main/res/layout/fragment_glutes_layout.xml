@@ -154,26 +154,43 @@
                         android:id="@+id/textView18"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="16dp"
+                        android:layout_marginStart="8dp"
                         android:text="Pitta"
                         android:textSize="20sp"
                         android:textStyle="bold"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+                        app:layout_constraintBottom_toBottomOf="@+id/pitta_image_view"
+                        app:layout_constraintStart_toEndOf="@+id/pitta_image_view"
+                        app:layout_constraintTop_toTopOf="@+id/pitta_image_view" />
+
+                    <View
+                        android:id="@+id/view_of_pitta"
+                        android:layout_width="100dp"
+                        android:layout_height="2dp"
+                        android:background="@color/cardview_shadow_start_color"
+                        android:layout_marginStart="8dp"
+                        app:layout_constraintStart_toEndOf="@+id/pitta_image_view"
+                        app:layout_constraintTop_toBottomOf="@+id/textView18" />
 
                     <LinearLayout
                         android:id="@+id/view_second"
                         android:layout_width="0dp"
                         android:layout_height="2dp"
-                        android:orientation="vertical"
                         android:layout_marginStart="8dp"
                         android:layout_marginEnd="8dp"
                         android:background="@color/place_autocomplete_search_hint"
-                        app:layout_constraintBottom_toTopOf="@+id/textView18"
+                        android:orientation="vertical"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="@+id/text_major" />
+
+                    <ImageView
+                        android:id="@+id/pitta_image_view"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_marginStart="8dp"
+                        android:src="@drawable/ic_earth"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/view_second" />
 
                     <TextView
                         android:id="@+id/textView19"
@@ -184,7 +201,7 @@
                         android:text="The elements of Agni and Jala combine to make Pitta. It is the energy responsible for heat,digestion,hunger and thirst. Pitta is hot,light,sharp and subtle. Small intestine is the place Pitta resides."
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textView18" />
+                        app:layout_constraintTop_toBottomOf="@+id/pitta_image_view" />
 
                     <TextView
                         android:id="@+id/textView21"
