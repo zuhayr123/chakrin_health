@@ -60,6 +60,10 @@ class GlutesFragment : Fragment(), Injectable {
             binding.materialButton.visibility = View.VISIBLE
         }
 
+        binding.loader.startAnimation(
+            AnimationUtils.loadAnimation(activity, R.anim.rotate_but_not_fade)
+        )
+
         binding.materialButton.setOnClickListener {
             val action = GlutesFragmentDirections.actionGlutesFragmentToFragmentSubscribeCheck()
             findNavController().navigate(action)
@@ -123,7 +127,7 @@ class GlutesFragment : Fragment(), Injectable {
 
                 4 -> {
                     binding.titleElement.text = "Space"
-                    binding.imageView.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.ic_galaxy))
+                    binding.imageView.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.ic_ether))
                     binding.imageView.startAnimation(AnimationUtils.loadAnimation(activity, R.anim.fade_accelerated))
                     binding.titleElement.startAnimation(AnimationUtils.loadAnimation(activity, R.anim.fade_accelerated))
                     binding.view.startAnimation(AnimationUtils.loadAnimation(activity, R.anim.fade_accelerated))
