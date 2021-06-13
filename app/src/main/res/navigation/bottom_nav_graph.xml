@@ -66,6 +66,9 @@
         <action
             android:id="@+id/action_fullBodyWorkout_to_fragmentSubscribeCheck"
             app:destination="@id/fragmentSubscribeCheck" />
+        <action
+            android:id="@+id/action_fullBodyWorkout_to_adapterQuizLayoutDyn"
+            app:destination="@id/adapterQuizLayoutDyn" />
     </fragment>
     <fragment
         android:id="@+id/upperBodyWorkout"
@@ -87,4 +90,8 @@
         android:id="@+id/fragmentSubscribeCheck"
         android:name="com.laaltentech.abou.fitnessapp.bottomnav.owner.fragments.FragmentSubscribeCheck"
         android:label="FragmentSubscribeCheck" />
+    <fragment
+        android:id="@+id/adapterQuizLayoutDyn"
+        android:name="com.laaltentech.abou.fitnessapp.bottomnav.owner.fragments.AdapterQuizLayoutDyn"
+        android:label="AdapterQuizLayoutDyn" />
 </navigation>

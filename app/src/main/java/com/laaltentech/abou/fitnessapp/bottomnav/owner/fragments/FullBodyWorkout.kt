@@ -46,15 +46,8 @@ class FullBodyWorkout : Fragment(), Injectable {
         val sharedPref = this.activity!!.getSharedPreferences("pref", Context.MODE_PRIVATE)
         val isSub = sharedPref.getBoolean(CONSTANTS.IS_SUB, false)
 
-        if(isSub){
-            binding.materialButton.visibility = View.GONE
-        }
-        else{
-            binding.materialButton.visibility = View.VISIBLE
-        }
-
         binding.materialButton.setOnClickListener {
-            val action = FullBodyWorkoutDirections.actionFullBodyWorkoutToFragmentSubscribeCheck()
+            val action = FullBodyWorkoutDirections.actionFullBodyWorkoutToAdapterQuizLayoutDyn()
             findNavController().navigate(action)
         }
         super.onActivityCreated(savedInstanceState)
