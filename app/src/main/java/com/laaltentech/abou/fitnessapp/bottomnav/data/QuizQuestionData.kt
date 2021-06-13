@@ -15,4 +15,6 @@ class QuizQuestionData {
     var optionPitta : String = "No Option"
 
     var optionKapha : String = "No Option"
+
+    var selectedOption : String = "0"
 }

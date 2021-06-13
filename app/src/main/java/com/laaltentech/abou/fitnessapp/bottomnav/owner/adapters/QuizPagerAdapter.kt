@@ -2,15 +2,19 @@ package com.laaltentech.abou.fitnessapp.bottomnav.owner.adapters
 
 import android.animation.LayoutTransition
 import android.content.res.Resources
+import android.util.Log
 import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
+import android.widget.ImageView
 import android.widget.LinearLayout
+import android.widget.TextView
 import androidx.databinding.DataBindingComponent
 import androidx.databinding.DataBindingUtil
 import androidx.viewpager.widget.PagerAdapter
+import com.google.gson.Gson
 import com.laaltentech.abou.fitnessapp.R
 import com.laaltentech.abou.fitnessapp.bottomnav.data.QuizQuestionData
 import com.laaltentech.abou.fitnessapp.databinding.AdapterViewpagerQuizBinding
@@ -45,16 +49,53 @@ class QuizPagerAdapter(private val dataBindingComponent: DataBindingComponent?, 
         binding.textData.text = questions[position].questionObservation
 
         binding.materialCardViewA.setOnClickListener {
-            val params: ViewGroup.LayoutParams = binding.materialCardViewA.layoutParams
-            params.height = (TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 100f, container.context.resources.displayMetrics)).toInt()
-            it.backgroundTintList = container.context.resources.getColorStateList(R.color.dot_inactive_screen2)
-            binding.optionAArrow.setImageResource(R.drawable.ic_correct)
-            binding.textData.text = "button was clicked"
+            selectItem(container = container, view = binding.materialCardViewA, imageView = binding.optionAArrow, textView = binding.optionA, select = true, position = position, selection = VATA)
+            selectItem(container = container, view = binding.materialCardViewB, imageView = binding.optionBArrow, textView = binding.optionB, select = false, position = position, selection = PITTA)
+            selectItem(container = container, view = binding.materialCardViewC, imageView = binding.optionCArrow, textView = binding.optionC, select = false, position = position, selection = KAPHA)
+        }
+
+        binding.materialCardViewB.setOnClickListener {
+            selectItem(container = container, view = binding.materialCardViewA, imageView = binding.optionAArrow, textView = binding.optionA, select = false, position = position, selection = VATA)
+            selectItem(container = container, view = binding.materialCardViewB, imageView = binding.optionBArrow, textView = binding.optionB, select = true, position = position, selection = PITTA)
+            selectItem(container = container, view = binding.materialCardViewC, imageView = binding.optionCArrow, textView = binding.optionC, select = false, position = position, selection = KAPHA)
+        }
+
+        binding.materialCardViewC.setOnClickListener{
+            selectItem(container = container, view = binding.materialCardViewA, imageView = binding.optionAArrow, textView = binding.optionA, select = false, position = position, selection = VATA)
+            selectItem(container = container, view = binding.materialCardViewB, imageView = binding.optionBArrow, textView = binding.optionB, select = false, position = position, selection = PITTA)
+            selectItem(container = container, view = binding.materialCardViewC, imageView = binding.optionCArrow, textView = binding.optionC, select = true, position = position, selection = KAPHA)
         }
         return binding.root
     }
 
     override fun destroyItem(container: ViewGroup, position: Int, `object`: Any) {
         container.removeView(`object` as LinearLayout)
+    }
+
+    fun selectItem(container: ViewGroup, view: View, textView: TextView, imageView: ImageView, select: Boolean, position: Int, selection : String){
+        if(select){
+            questions[position].selectedOption = selection
+            val params: ViewGroup.LayoutParams = view.layoutParams
+            params.height = (TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 100f, container.context.resources.displayMetrics)).toInt()
+            view.backgroundTintList = container.context.resources.getColorStateList(R.color.dot_inactive_screen2)
+            imageView.setImageResource(R.drawable.ic_correct)
+            textView.text = "button was clicked"
+        }
+
+        else{
+            val params: ViewGroup.LayoutParams = view.layoutParams
+            params.height = (TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 72f, container.context.resources.displayMetrics)).toInt()
+            view.backgroundTintList = container.context.resources.getColorStateList(R.color.colorExtraPrimaryDark)
+            imageView.setImageResource(R.drawable.ic_forward)
+            textView.text = "button was clicked"
+        }
+
+        Log.e("DATA LOG", "The data being saved is ${Gson().toJson(questions[position])}")
+    }
+
+    companion object{
+        var VATA = "vata"
+        var PITTA = "pitta"
+        var KAPHA = "kapha"
     }
 }
