@@ -2,6 +2,7 @@ package com.laaltentech.abou.fitnessapp.bottomnav.owner.adapters
 
 import android.animation.LayoutTransition
 import android.content.res.Resources
+import android.os.Parcelable
 import android.util.Log
 import android.util.TypedValue
 import android.view.LayoutInflater
@@ -37,6 +38,26 @@ class QuizPagerAdapter(private val dataBindingComponent: DataBindingComponent?, 
                 dataBindingComponent
             )
 
+        when(questions[position].selectedOption){
+            VATA ->{
+                selectItem(container = container, view = binding.materialCardViewA, imageView = binding.optionAArrow, textView = binding.optionA, select = true, position = position, selection = VATA)
+                selectItem(container = container, view = binding.materialCardViewB, imageView = binding.optionBArrow, textView = binding.optionB, select = false, position = position, selection = PITTA)
+                selectItem(container = container, view = binding.materialCardViewC, imageView = binding.optionCArrow, textView = binding.optionC, select = false, position = position, selection = KAPHA)
+            }
+
+            PITTA -> {
+                selectItem(container = container, view = binding.materialCardViewA, imageView = binding.optionAArrow, textView = binding.optionA, select = false, position = position, selection = VATA)
+                selectItem(container = container, view = binding.materialCardViewB, imageView = binding.optionBArrow, textView = binding.optionB, select = true, position = position, selection = PITTA)
+                selectItem(container = container, view = binding.materialCardViewC, imageView = binding.optionCArrow, textView = binding.optionC, select = false, position = position, selection = KAPHA)
+            }
+
+            KAPHA -> {
+                selectItem(container = container, view = binding.materialCardViewA, imageView = binding.optionAArrow, textView = binding.optionA, select = false, position = position, selection = VATA)
+                selectItem(container = container, view = binding.materialCardViewB, imageView = binding.optionBArrow, textView = binding.optionB, select = false, position = position, selection = PITTA)
+                selectItem(container = container, view = binding.materialCardViewC, imageView = binding.optionCArrow, textView = binding.optionC, select = true, position = position, selection = KAPHA)
+            }
+        }
+
         binding.materialCardViewA.layoutTransition.enableTransitionType(LayoutTransition.CHANGING)
         binding.materialCardViewB.layoutTransition.enableTransitionType(LayoutTransition.CHANGING)
         binding.materialCardViewC.layoutTransition.enableTransitionType(LayoutTransition.CHANGING)
@@ -47,6 +68,9 @@ class QuizPagerAdapter(private val dataBindingComponent: DataBindingComponent?, 
 
         container.addView(binding.root)
         binding.textData.text = questions[position].questionObservation
+        binding.optionA.text = questions[position].optionVata
+        binding.optionB.text = questions[position].optionPitta
+        binding.optionC.text = questions[position].optionKapha
 
         binding.materialCardViewA.setOnClickListener {
             selectItem(container = container, view = binding.materialCardViewA, imageView = binding.optionAArrow, textView = binding.optionA, select = true, position = position, selection = VATA)
@@ -89,8 +113,6 @@ class QuizPagerAdapter(private val dataBindingComponent: DataBindingComponent?, 
             imageView.setImageResource(R.drawable.ic_forward)
             textView.text = "button was clicked"
         }
-
-        Log.e("DATA LOG", "The data being saved is ${Gson().toJson(questions[position])}")
     }
 
     companion object{

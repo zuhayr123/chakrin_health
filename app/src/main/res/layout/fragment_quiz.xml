@@ -12,6 +12,7 @@
             android:id="@+id/constraintLayout2"
             android:layout_width="match_parent"
             android:layout_height="50dp"
+            android:animateLayoutChanges="true"
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -61,12 +62,14 @@
 
         <ProgressBar
             android:id="@+id/progressBar"
+            android:max="100"
+            android:animateLayoutChanges="true"
             style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="match_parent"
             android:layout_height="10dp"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
-            android:progress="40"
+            android:progress="2"
             android:progressBackgroundTint="@color/colorExtraPrimaryDark"
             android:progressTint="@color/bg_color_for_welcome_slide_two"
             app:layout_constraintEnd_toEndOf="parent"
@@ -108,6 +111,21 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/done"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="32dp"
+            app:srcCompat="@drawable/ic_correct"
+            app:tint = "@color/colorPrimaryWhite"
+            app:backgroundTint="@color/colorPrimaryWhite"
+            android:layout_marginBottom="32dp"
+            app:borderWidth="1dp"
+            android:background="@color/colorExtraPrimaryDark"
+            android:backgroundTint="@color/colorExtraPrimaryDark"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>
