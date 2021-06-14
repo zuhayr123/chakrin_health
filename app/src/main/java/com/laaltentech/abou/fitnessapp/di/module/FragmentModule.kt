@@ -62,4 +62,7 @@ abstract class FragmentModule {
 
     @ContributesAndroidInjector
     abstract fun contributeFragmentAdapterQuizLayoutDyn(): AdapterQuizLayoutDyn
+
+    @ContributesAndroidInjector
+    abstract fun contributeFragmentQuizResult(): FragmentQuizResult
 }

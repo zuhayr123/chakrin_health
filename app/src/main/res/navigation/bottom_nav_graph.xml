@@ -68,7 +68,11 @@
             app:destination="@id/fragmentSubscribeCheck" />
         <action
             android:id="@+id/action_fullBodyWorkout_to_adapterQuizLayoutDyn"
-            app:destination="@id/adapterQuizLayoutDyn" />
+            app:destination="@id/adapterQuizLayoutDyn"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out" />
     </fragment>
     <fragment
         android:id="@+id/upperBodyWorkout"
@@ -93,5 +97,17 @@
     <fragment
         android:id="@+id/adapterQuizLayoutDyn"
         android:name="com.laaltentech.abou.fitnessapp.bottomnav.owner.fragments.AdapterQuizLayoutDyn"
-        android:label="AdapterQuizLayoutDyn" />
+        android:label="AdapterQuizLayoutDyn" >
+        <action
+            android:id="@+id/action_adapterQuizLayoutDyn_to_fragmentQuizResult"
+            app:destination="@id/fragmentQuizResult"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentQuizResult"
+        android:name="com.laaltentech.abou.fitnessapp.bottomnav.owner.fragments.FragmentQuizResult"
+        android:label="FragmentQuizResult" />
 </navigation>

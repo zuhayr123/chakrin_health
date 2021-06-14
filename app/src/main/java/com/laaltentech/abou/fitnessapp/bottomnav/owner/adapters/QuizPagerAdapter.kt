@@ -102,19 +102,19 @@ class QuizPagerAdapter(private val dataBindingComponent: DataBindingComponent?, 
     fun selectItem(container: ViewGroup, view: View, textView: TextView, imageView: ImageView, select: Boolean, position: Int, selection : String){
         if(select){
             questions[position].selectedOption = selection
-            val params: ViewGroup.LayoutParams = view.layoutParams
-            params.height = (TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 100f, container.context.resources.displayMetrics)).toInt()
             view.backgroundTintList = container.context.resources.getColorStateList(R.color.dot_inactive_screen2)
             imageView.setImageResource(R.drawable.ic_correct)
-            textView.text = "button was clicked"
+            val params: ViewGroup.LayoutParams = view.layoutParams
+            params.height = (TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 100f, container.context.resources.displayMetrics)).toInt()
+            textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18f);
         }
 
         else{
-            val params: ViewGroup.LayoutParams = view.layoutParams
-            params.height = (TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 72f, container.context.resources.displayMetrics)).toInt()
             view.backgroundTintList = container.context.resources.getColorStateList(R.color.colorExtraPrimaryDark)
             imageView.setImageResource(R.drawable.ic_forward)
-            textView.text = "button was clicked"
+            val params: ViewGroup.LayoutParams = view.layoutParams
+            params.height = (TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 72f, container.context.resources.displayMetrics)).toInt()
+            textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18f);
         }
     }
 

@@ -14,6 +14,7 @@ import android.widget.ProgressBar
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.viewpager.widget.ViewPager
 import com.google.gson.Gson
 import com.laaltentech.abou.fitnessapp.R
@@ -94,7 +95,7 @@ class AdapterQuizLayoutDyn : Fragment() {
                         val h = Handler()
                             h.postDelayed({
                                 moveNext()
-                            }, 500)
+                            }, 300)
 
                         Log.e("Writer", "This was called")
                     }
@@ -130,7 +131,8 @@ class AdapterQuizLayoutDyn : Fragment() {
         })
 
         binding.done.setOnClickListener {
-            Log.e("Result", "the result of the viewpager is ${Gson().toJson(adapter.questions)}")
+            val action = AdapterQuizLayoutDynDirections.actionAdapterQuizLayoutDynToFragmentQuizResult()
+            findNavController().navigate(action)
         }
         super.onActivityCreated(savedInstanceState)
     }
