@@ -20,7 +20,7 @@ import com.laaltentech.abou.fitnessapp.R
 import com.laaltentech.abou.fitnessapp.bottomnav.data.QuizQuestionData
 import com.laaltentech.abou.fitnessapp.databinding.AdapterViewpagerQuizBinding
 
-class QuizPagerAdapter(private val dataBindingComponent: DataBindingComponent?, var questions : ArrayList<QuizQuestionData>):PagerAdapter(){
+class QuizPagerAdapter(private val dataBindingComponent: DataBindingComponent?, var questions : ArrayList<QuizQuestionData>, private val callback: ((action:String)->Unit)?):PagerAdapter(){
 
     override fun getCount(): Int = questions.size
 
@@ -98,6 +98,7 @@ class QuizPagerAdapter(private val dataBindingComponent: DataBindingComponent?, 
 
     fun selectItem(container: ViewGroup, view: View, textView: TextView, imageView: ImageView, select: Boolean, position: Int, selection : String){
         if(select){
+            callback?.invoke("Action")
             questions[position].selectedOption = selection
             val params: ViewGroup.LayoutParams = view.layoutParams
             params.height = (TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 100f, container.context.resources.displayMetrics)).toInt()

@@ -77,10 +77,18 @@ class AdapterQuizLayoutDyn : Fragment() {
         createQuestions(title = "Wealth", optionA = "Spends a lot without thinking much", optionB = "Spends on valuable things only", optionC = "Saves more & spends less")
         createQuestions(title = "Weather", optionA = "Dislikes cold", optionB = "Dislikes heat", optionC = "Dislikes rain")
 
+        binding.answerCounter.text = "0/" + arrayOfQuestions.size.toString()
 
         binding.constraintLayout2.layoutTransition.enableTransitionType(LayoutTransition.CHANGING)
 
-        adapter = QuizPagerAdapter(dataBindingComponent = DataBindingUtil.getDefaultComponent(), questions = arrayOfQuestions)
+        adapter = QuizPagerAdapter(dataBindingComponent = DataBindingUtil.getDefaultComponent(), questions = arrayOfQuestions){
+            when(it){
+                "Action" ->{
+                    binding.answerCounter.text = answerCounter().toString() + "/" + arrayOfQuestions.size.toString()
+                    Log.e("Button", "Some button was clicked")
+                }
+            }
+        }
         binding.viewPager.adapter = adapter
 
         binding.viewPager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
@@ -90,7 +98,10 @@ class AdapterQuizLayoutDyn : Fragment() {
             }
 
             override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
-                binding.progressBar.smoothProgress(position*25)
+                binding.progressBar.smoothProgress((((position+1)*100)/adapter.questions.size))
+                binding.questionNumbers.text = (position+1).toString()
+                binding.totalNumberOfQuestions.text = "/" + arrayOfQuestions.size.toString()
+
                 Log.e("onPageScrolled", "The state is $position")
             }
             override fun onPageSelected(position: Int) {
@@ -117,8 +128,19 @@ class AdapterQuizLayoutDyn : Fragment() {
 
     fun ProgressBar.smoothProgress(percent: Int){
         val animation = ObjectAnimator.ofInt(this, "progress", percent)
-        animation.duration = 400
+        animation.duration = 50
         animation.interpolator = DecelerateInterpolator()
         animation.start()
+    }
+
+    fun answerCounter() : Int{
+        var answerCounter = 1
+        adapter.questions.forEach {
+            if(it.selectedOption != "0"){
+                answerCounter += 1
+            }
+        }
+
+        return answerCounter
     }
 }

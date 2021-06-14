@@ -69,7 +69,6 @@
             android:layout_height="10dp"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
-            android:progress="2"
             android:progressBackgroundTint="@color/colorExtraPrimaryDark"
             android:progressTint="@color/bg_color_for_welcome_slide_two"
             app:layout_constraintEnd_toEndOf="parent"
@@ -86,6 +85,7 @@
             app:layout_constraintTop_toBottomOf="@+id/progressBar">
 
             <TextView
+                android:id="@+id/question_numbers"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
@@ -95,6 +95,7 @@
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/total_number_of_questions"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="/23"
@@ -117,7 +118,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="32dp"
-            app:srcCompat="@drawable/ic_correct"
             app:tint = "@color/colorPrimaryWhite"
             app:backgroundTint="@color/colorPrimaryWhite"
             android:layout_marginBottom="32dp"
@@ -126,6 +126,22 @@
             android:backgroundTint="@color/colorExtraPrimaryDark"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/answer_counter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimaryWhite"
+            android:text="12/23"
+            android:textStyle="bold"
+            android:clickable="false"
+            android:focusable="false"
+            android:textAlignment="center"
+            android:elevation="50dp"
+            app:layout_constraintBottom_toBottomOf="@+id/done"
+            app:layout_constraintEnd_toEndOf="@+id/done"
+            app:layout_constraintStart_toStartOf="@+id/done"
+            app:layout_constraintTop_toTopOf="@+id/done" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>
