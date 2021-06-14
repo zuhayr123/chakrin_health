@@ -119,11 +119,9 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="32dp"
             app:tint = "@color/colorPrimaryWhite"
-            app:backgroundTint="@color/colorPrimaryWhite"
+            app:backgroundTint="@color/colorExtraPrimaryDark"
             android:layout_marginBottom="32dp"
             app:borderWidth="1dp"
-            android:background="@color/colorExtraPrimaryDark"
-            android:backgroundTint="@color/colorExtraPrimaryDark"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 

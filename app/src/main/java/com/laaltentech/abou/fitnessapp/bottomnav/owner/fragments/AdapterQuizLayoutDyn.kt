@@ -49,6 +49,8 @@ class AdapterQuizLayoutDyn : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
 
+        binding.done.isEnabled = false
+
         createQuestions(title = "Body Frame", optionA = "Thin & Lean", optionB = "Medium", optionC = "Large")
         createQuestions(title = "Hair", optionA = "Dry & Brittle", optionB = "Normal,early greying,bald", optionC = "Thick & oily")
         createQuestions(title = "Skin", optionA = "Thin,dry & rough", optionB = "Smooth,oily & warm", optionC = "Thick,oily & cool")
@@ -84,8 +86,16 @@ class AdapterQuizLayoutDyn : Fragment() {
         adapter = QuizPagerAdapter(dataBindingComponent = DataBindingUtil.getDefaultComponent(), questions = arrayOfQuestions){
             when(it){
                 "Action" ->{
-                    binding.answerCounter.text = answerCounter().toString() + "/" + arrayOfQuestions.size.toString()
-                    Log.e("Button", "Some button was clicked")
+                    if(answerCounter()<arrayOfQuestions.size){
+                        binding.answerCounter.text = answerCounter().toString() + "/" + arrayOfQuestions.size.toString()
+                    }
+
+                    else{
+                        binding.done.isEnabled = true
+                        binding.answerCounter.visibility = View.GONE
+                        binding.done.setImageResource(R.drawable.ic_correct)
+                        binding.done.backgroundTintList = context?.resources?.getColorStateList(R.color.dot_inactive_screen2)
+                    }
                 }
             }
         }
