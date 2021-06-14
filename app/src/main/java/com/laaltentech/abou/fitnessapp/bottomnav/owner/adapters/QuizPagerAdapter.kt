@@ -73,18 +73,21 @@ class QuizPagerAdapter(private val dataBindingComponent: DataBindingComponent?, 
         binding.optionC.text = questions[position].optionKapha
 
         binding.materialCardViewA.setOnClickListener {
+            callback?.invoke("Action")
             selectItem(container = container, view = binding.materialCardViewA, imageView = binding.optionAArrow, textView = binding.optionA, select = true, position = position, selection = VATA)
             selectItem(container = container, view = binding.materialCardViewB, imageView = binding.optionBArrow, textView = binding.optionB, select = false, position = position, selection = PITTA)
             selectItem(container = container, view = binding.materialCardViewC, imageView = binding.optionCArrow, textView = binding.optionC, select = false, position = position, selection = KAPHA)
         }
 
         binding.materialCardViewB.setOnClickListener {
+            callback?.invoke("Action")
             selectItem(container = container, view = binding.materialCardViewA, imageView = binding.optionAArrow, textView = binding.optionA, select = false, position = position, selection = VATA)
             selectItem(container = container, view = binding.materialCardViewB, imageView = binding.optionBArrow, textView = binding.optionB, select = true, position = position, selection = PITTA)
             selectItem(container = container, view = binding.materialCardViewC, imageView = binding.optionCArrow, textView = binding.optionC, select = false, position = position, selection = KAPHA)
         }
 
         binding.materialCardViewC.setOnClickListener{
+            callback?.invoke("Action")
             selectItem(container = container, view = binding.materialCardViewA, imageView = binding.optionAArrow, textView = binding.optionA, select = false, position = position, selection = VATA)
             selectItem(container = container, view = binding.materialCardViewB, imageView = binding.optionBArrow, textView = binding.optionB, select = false, position = position, selection = PITTA)
             selectItem(container = container, view = binding.materialCardViewC, imageView = binding.optionCArrow, textView = binding.optionC, select = true, position = position, selection = KAPHA)
@@ -98,7 +101,6 @@ class QuizPagerAdapter(private val dataBindingComponent: DataBindingComponent?, 
 
     fun selectItem(container: ViewGroup, view: View, textView: TextView, imageView: ImageView, select: Boolean, position: Int, selection : String){
         if(select){
-            callback?.invoke("Action")
             questions[position].selectedOption = selection
             val params: ViewGroup.LayoutParams = view.layoutParams
             params.height = (TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 100f, container.context.resources.displayMetrics)).toInt()

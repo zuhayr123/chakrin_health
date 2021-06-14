@@ -2,7 +2,9 @@ package com.laaltentech.abou.fitnessapp.bottomnav.owner.fragments
 
 import android.animation.LayoutTransition
 import android.animation.ObjectAnimator
+import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -80,7 +82,7 @@ class AdapterQuizLayoutDyn : Fragment() {
         createQuestions(title = "Weather", optionA = "Dislikes cold", optionB = "Dislikes heat", optionC = "Dislikes rain")
 
         binding.answerCounter.text = "0/" + arrayOfQuestions.size.toString()
-
+        binding.parentLayout.layoutTransition.enableTransitionType(LayoutTransition.CHANGING)
         binding.constraintLayout2.layoutTransition.enableTransitionType(LayoutTransition.CHANGING)
 
         adapter = QuizPagerAdapter(dataBindingComponent = DataBindingUtil.getDefaultComponent(), questions = arrayOfQuestions){
@@ -88,6 +90,13 @@ class AdapterQuizLayoutDyn : Fragment() {
                 "Action" ->{
                     if(answerCounter()<arrayOfQuestions.size){
                         binding.answerCounter.text = answerCounter().toString() + "/" + arrayOfQuestions.size.toString()
+
+                        val h = Handler()
+                            h.postDelayed({
+                                moveNext()
+                            }, 500)
+
+                        Log.e("Writer", "This was called")
                     }
 
                     else{
@@ -152,5 +161,10 @@ class AdapterQuizLayoutDyn : Fragment() {
         }
 
         return answerCounter
+    }
+
+    fun moveNext() {
+        //it doesn't matter if you're already in the last item
+        binding.viewPager.currentItem = binding.viewPager.currentItem + 1
     }
 }
