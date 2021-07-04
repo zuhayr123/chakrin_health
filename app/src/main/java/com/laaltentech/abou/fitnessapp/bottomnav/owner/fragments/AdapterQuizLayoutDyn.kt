@@ -18,6 +18,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.viewpager.widget.ViewPager
 import com.google.gson.Gson
 import com.laaltentech.abou.fitnessapp.R
+import com.laaltentech.abou.fitnessapp.bottomnav.data.QuestionDataArrayModel
 import com.laaltentech.abou.fitnessapp.bottomnav.data.QuizQuestionData
 import com.laaltentech.abou.fitnessapp.bottomnav.owner.adapters.QuizPagerAdapter
 import com.laaltentech.abou.fitnessapp.databinding.FragmentQuizBinding
@@ -39,6 +40,8 @@ class AdapterQuizLayoutDyn : Fragment() {
     lateinit var adapter : QuizPagerAdapter
 
     var arrayOfQuestions : ArrayList<QuizQuestionData> = ArrayList()
+
+    var arrayQuestions : QuestionDataArrayModel = QuestionDataArrayModel()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -131,7 +134,8 @@ class AdapterQuizLayoutDyn : Fragment() {
         })
 
         binding.done.setOnClickListener {
-            val action = AdapterQuizLayoutDynDirections.actionAdapterQuizLayoutDynToFragmentQuizResult()
+            arrayQuestions.questionArray = arrayOfQuestions
+            val action = AdapterQuizLayoutDynDirections.actionAdapterQuizLayoutDynToFragmentQuizResult(Gson().toJson(arrayQuestions))
             findNavController().navigate(action)
         }
         super.onActivityCreated(savedInstanceState)
@@ -143,7 +147,6 @@ class AdapterQuizLayoutDyn : Fragment() {
         questionData.optionKapha = optionA
         questionData.optionPitta = optionB
         questionData.optionVata = optionC
-
         arrayOfQuestions.add(questionData)
     }
 

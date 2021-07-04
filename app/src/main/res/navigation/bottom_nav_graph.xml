@@ -109,5 +109,8 @@
     <fragment
         android:id="@+id/fragmentQuizResult"
         android:name="com.laaltentech.abou.fitnessapp.bottomnav.owner.fragments.FragmentQuizResult"
-        android:label="FragmentQuizResult" />
+        android:label="FragmentQuizResult" >
+        <argument android:name="result_array"
+            app:argType="string" />
+    </fragment>
 </navigation>

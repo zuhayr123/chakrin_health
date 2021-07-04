@@ -1,19 +1,19 @@
 package com.laaltentech.abou.fitnessapp.bottomnav.owner.fragments
 
-import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.WindowManager
 import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.google.gson.Gson
 import com.laaltentech.abou.fitnessapp.R
-import com.laaltentech.abou.fitnessapp.bottomnav.owner.activity.BottomMainNavActivity
+import com.laaltentech.abou.fitnessapp.bottomnav.data.QuestionDataArrayModel
 import com.laaltentech.abou.fitnessapp.databinding.FragmentQuizResultLayoutBinding
 import com.laaltentech.abou.fitnessapp.di.Injectable
 import com.laaltentech.abou.fitnessapp.util.AppExecutors
@@ -48,6 +48,13 @@ class FragmentQuizResult: Fragment(), Injectable {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         activity?.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
+
+        val gson = Gson()
+        val result = FragmentQuizResultArgs.fromBundle(arguments!!).resultArray
+
+        var quizData : QuestionDataArrayModel = gson.fromJson(result, QuestionDataArrayModel::class.java)
+
+        Log.e("mapping was done", "the values are ${quizData.questionArray?.get(1)?.optionVata}")
 
         binding.root.logo_image.startAnimation(
             AnimationUtils.loadAnimation(activity, R.anim.rotate_indefinitely)

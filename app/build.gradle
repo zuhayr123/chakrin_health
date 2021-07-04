@@ -16,6 +16,11 @@ android {
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
+
+    lintOptions {
+        checkReleaseBuilds false
+    }
+
     dataBinding {
         enabled true
     }
@@ -27,8 +32,17 @@ android {
     }
 
     packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/license.txt'
         exclude 'META-INF/LICENSE.md'
+        exclude 'META-INF/license.md'
+        exclude 'META-INF/NOTICE'
         exclude 'META-INF/NOTICE.md'
+        exclude 'META-INF/notice.md'
+        exclude 'META-INF/ASL2.0'
+        exclude("META-INF/*.kotlin_module")
     }
 
     compileOptions {
@@ -115,4 +129,6 @@ dependencies {
     kapt 'com.github.bumptech.glide:compiler:4.4.0'
 
     implementation 'id.zelory:compressor:3.0.0'
+
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
 }
