@@ -14,6 +14,9 @@ import androidx.lifecycle.ViewModelProvider
 import com.google.gson.Gson
 import com.laaltentech.abou.fitnessapp.R
 import com.laaltentech.abou.fitnessapp.bottomnav.data.QuestionDataArrayModel
+import com.laaltentech.abou.fitnessapp.bottomnav.owner.adapters.QuizPagerAdapter.Companion.KAPHA
+import com.laaltentech.abou.fitnessapp.bottomnav.owner.adapters.QuizPagerAdapter.Companion.PITTA
+import com.laaltentech.abou.fitnessapp.bottomnav.owner.adapters.QuizPagerAdapter.Companion.VATA
 import com.laaltentech.abou.fitnessapp.databinding.FragmentQuizResultLayoutBinding
 import com.laaltentech.abou.fitnessapp.di.Injectable
 import com.laaltentech.abou.fitnessapp.util.AppExecutors
@@ -52,9 +55,13 @@ class FragmentQuizResult: Fragment(), Injectable {
         val gson = Gson()
         val result = FragmentQuizResultArgs.fromBundle(arguments!!).resultArray
 
-        var quizData : QuestionDataArrayModel = gson.fromJson(result, QuestionDataArrayModel::class.java)
+        val quizData : QuestionDataArrayModel = gson.fromJson(result, QuestionDataArrayModel::class.java)
 
-        Log.e("mapping was done", "the values are ${quizData.questionArray?.get(1)?.optionVata}")
+        Log.e("RESULT", "The result is ${quizData.questionArray?.get(1)?.selectedOption}")
+
+        val percentageResult = calculateResult(data = quizData)
+
+        Log.e("mapping was done", "the values Kapha :  ${percentageResult[0]},the values Vata :  ${percentageResult[1]},the values Pitta:  ${percentageResult[2]} ")
 
         binding.root.logo_image.startAnimation(
             AnimationUtils.loadAnimation(activity, R.anim.rotate_indefinitely)
@@ -65,5 +72,36 @@ class FragmentQuizResult: Fragment(), Injectable {
                 binding.loaderNew.root.visibility = View.GONE
             }, 4500)
         super.onActivityCreated(savedInstanceState)
+    }
+
+    fun calculateResult(data : QuestionDataArrayModel) : ArrayList<Int>{
+        val totalNumberOfQuestions = data.questionArray?.size
+
+        var kaphaNumbers = 0
+        var pittaNumbers = 0
+        var vataNumbers = 0
+
+        val result : ArrayList<Int> = ArrayList()
+        data.questionArray?.forEach {
+            when(it.selectedOption){
+                KAPHA -> {
+                    kaphaNumbers += 1
+                }
+
+                VATA -> {
+                    vataNumbers += 1
+                }
+
+                PITTA -> {
+                    pittaNumbers += 1
+                }
+            }
+        }
+
+        result.add(kaphaNumbers*100/totalNumberOfQuestions!!)
+        result.add(vataNumbers*100/totalNumberOfQuestions)
+        result.add(100 - result[0] - result[1])
+
+        return result
     }
 }
