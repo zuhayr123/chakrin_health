@@ -1,5 +1,6 @@
 package com.laaltentech.abou.fitnessapp.bottomnav.owner.fragments
 
+import android.graphics.Color
 import android.os.Bundle
 import android.os.Handler
 import android.util.Log
@@ -11,6 +12,14 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.github.mikephil.charting.animation.Easing
+import com.github.mikephil.charting.charts.PieChart
+import com.github.mikephil.charting.components.Legend
+import com.github.mikephil.charting.data.PieData
+import com.github.mikephil.charting.data.PieDataSet
+import com.github.mikephil.charting.data.PieEntry
+import com.github.mikephil.charting.formatter.PercentFormatter
+import com.github.mikephil.charting.utils.ColorTemplate
 import com.google.gson.Gson
 import com.laaltentech.abou.fitnessapp.R
 import com.laaltentech.abou.fitnessapp.bottomnav.data.QuestionDataArrayModel
@@ -24,6 +33,7 @@ import com.laaltentech.abou.fitnessapp.util.FragmentDataBindingComponent
 import kotlinx.android.synthetic.main.activity_bottom_main_layout.*
 import kotlinx.android.synthetic.main.fragment_quiz_result_loader.view.*
 import javax.inject.Inject
+
 
 class FragmentQuizResult: Fragment(), Injectable {
     @Inject
@@ -52,6 +62,8 @@ class FragmentQuizResult: Fragment(), Injectable {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         activity?.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
 
+        setupPieChart();
+
         val gson = Gson()
         val result = FragmentQuizResultArgs.fromBundle(arguments!!).resultArray
 
@@ -60,6 +72,8 @@ class FragmentQuizResult: Fragment(), Injectable {
         Log.e("RESULT", "The result is ${quizData.questionArray?.get(1)?.selectedOption}")
 
         val percentageResult = calculateResult(data = quizData)
+
+        loadPieChartData(kapha = percentageResult[0], vata = percentageResult[1], pitta = percentageResult[2])
 
         Log.e("mapping was done", "the values Kapha :  ${percentageResult[0]},the values Vata :  ${percentageResult[1]},the values Pitta:  ${percentageResult[2]} ")
 
@@ -103,5 +117,37 @@ class FragmentQuizResult: Fragment(), Injectable {
         result.add(100 - result[0] - result[1])
 
         return result
+    }
+
+    private fun setupPieChart() {
+        binding.pieChart.isDrawHoleEnabled = true
+        binding.pieChart.setUsePercentValues(true)
+        binding.pieChart.setEntryLabelTextSize(12f)
+        binding.pieChart.setEntryLabelColor(Color.BLACK)
+        binding.pieChart.centerText = "Your Prakriti"
+        binding.pieChart.setCenterTextSize(24f)
+        binding.pieChart.description.isEnabled = false
+    }
+
+    private fun loadPieChartData(vata: Int, pitta: Int, kapha: Int) {
+        val entries: ArrayList<PieEntry> = ArrayList()
+        entries.add(PieEntry((vata.toFloat()/100), "Vata"))
+        entries.add(PieEntry((pitta.toFloat()/100), "Pitta"))
+        entries.add(PieEntry((kapha.toFloat()/100), "Kapha"))
+        val colors: ArrayList<Int> = ArrayList()
+        colors.add(resources.getColor(R.color.colorPrimary))
+        colors.add(resources.getColor(R.color.bg_color_for_welcome_slide_two))
+        colors.add(resources.getColor(R.color.colorAccentNew))
+
+        val dataSet = PieDataSet(entries, "")
+        dataSet.colors = colors
+        val data = PieData(dataSet)
+        data.setDrawValues(true)
+        data.setValueFormatter(PercentFormatter(binding.pieChart))
+        data.setValueTextSize(12f)
+        data.setValueTextColor(Color.BLACK)
+        binding.pieChart.data = data
+        binding.pieChart.invalidate()
+        binding.pieChart.animateY(1400, Easing.EaseInOutQuad)
     }
 }

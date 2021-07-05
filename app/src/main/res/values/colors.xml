@@ -7,6 +7,7 @@
     <color name="colorPrimary">#F58B44</color>
     <color name="colorPrimaryWhite">#FCF5EB</color>
     <color name="colorPrimaryDark">#F47D31</color>
+    <color name="colorAccentNew">#8B44F5</color>
     <color name="colorExtraPrimaryDark">#ab5822</color>
     <color name="colorAccent">#5A6175</color>
     <color name="colorAccentDark">#4B5161</color>
