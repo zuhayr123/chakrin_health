@@ -21,7 +21,7 @@ class GameDataViewModel@Inject constructor(
 
     val apiCall = MutableLiveData<String>()
     var gameData = GameData()
-    var results: LiveData<Resource<GameDataWithIndividualRelation>>
+//    var results: LiveData<Resource<GameDataWithIndividualRelation>>
 
     private val callbacks: PropertyChangeRegistry by lazy { PropertyChangeRegistry() }
 
@@ -36,17 +36,17 @@ class GameDataViewModel@Inject constructor(
         callbacks.notifyCallbacks(this, 0, null)
     }
 
-    init{
-        results = Transformations.switchMap(apiCall){
-            when(apiCall.value){
-                "available" -> {
-                    repository.insertGameData(gameId = "123", data = gameData)
-                }
-                else -> {
-                    AbsentLiveData.create()
-                }
-            }
-        }
-    }
+//    init{
+//        results = Transformations.switchMap(apiCall){
+//            when(apiCall.value){
+//                "available" -> {
+//                    repository.insertGameData(gameId = "123", data = gameData)
+//                }
+//                else -> {
+//                    AbsentLiveData.create()
+//                }
+//            }
+//        }
+//    }
 
 }

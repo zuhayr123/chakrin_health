@@ -9,7 +9,7 @@ apply plugin: 'kotlin-kapt'
 android {
     compileSdkVersion 29
     defaultConfig {
-        applicationId "com.laaltentech.abou.fitnessapp"
+        applicationId "com.dmvi.abou.myapplication"
         minSdkVersion 21
         targetSdkVersion 29
         versionCode 1
@@ -60,7 +60,7 @@ android {
 }
 
 dependencies {
-    def nav_version = "2.1.0"
+    def nav_version = "2.3.5"
     def room_version = "2.2.3"
     def paging_version = "2.1.1"
 
@@ -84,10 +84,10 @@ dependencies {
 
     implementation "androidx.paging:paging-runtime:$paging_version"
 
-    implementation 'androidx.navigation:navigation-fragment:2.2.1'
-    implementation 'androidx.navigation:navigation-ui:2.2.1'
-    implementation 'androidx.navigation:navigation-fragment-ktx:2.2.1'
-    implementation 'androidx.navigation:navigation-ui-ktx:2.2.1'
+    implementation 'androidx.navigation:navigation-fragment:2.3.5'
+    implementation 'androidx.navigation:navigation-ui:2.3.5'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.3.5'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.3.5'
     debugImplementation 'com.amitshekhar.android:debug-db:1.0.6'
 
     //dagger implementation

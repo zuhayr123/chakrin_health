@@ -11,6 +11,6 @@ interface GameDAO{
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertGameData(signUpData: GameData)
 
-    @Query("SELECT * FROM GameData WHERE game_id = :gameId")
-    fun loadAll(gameId : String) : LiveData<GameDataWithIndividualRelation>
+//    @Query("SELECT * FROM GameData WHERE timestamp = :gameId")
+//    fun loadAll(gameId : String) : LiveData<GameDataWithIndividualRelation>
 }

@@ -52,21 +52,21 @@ class GameInstructionsFragment : Fragment(), Injectable {
 
     fun viewModelInit(){
         newGameDataViewModel.let {
-            it.results.observe(viewLifecycleOwner, Observer { item ->
-                when(item.status){
-                    Status.SUCCESS -> {
-                        Log.e("TAG", "Data fetch was successful ${Gson().toJson(item.data)}")
-                    }
-
-                    Status.LOADING -> {
-                        Log.e("TAG", "Data fetch Loading ${Gson().toJson(item.data)}")
-                    }
-
-                    Status.ERROR -> {
-                        Log.e("TAG", "Data fetch error")
-                    }
-                }
-            })
+//            it.results.observe(viewLifecycleOwner, Observer { item ->
+//                when(item.status){
+//                    Status.SUCCESS -> {
+//                        Log.e("TAG", "Data fetch was successful ${Gson().toJson(item.data)}")
+//                    }
+//
+//                    Status.LOADING -> {
+//                        Log.e("TAG", "Data fetch Loading ${Gson().toJson(item.data)}")
+//                    }
+//
+//                    Status.ERROR -> {
+//                        Log.e("TAG", "Data fetch error")
+//                    }
+//                }
+//            })
         }
     }
 
