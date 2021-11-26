@@ -93,11 +93,11 @@
     <fragment
         android:id="@+id/fragmentSubscribeCheck"
         android:name="com.laaltentech.abou.fitnessapp.bottomnav.owner.fragments.FragmentSubscribeCheck"
-        android:label="FragmentSubscribeCheck" />
+        android:label="Subscribe" />
     <fragment
         android:id="@+id/adapterQuizLayoutDyn"
         android:name="com.laaltentech.abou.fitnessapp.bottomnav.owner.fragments.AdapterQuizLayoutDyn"
-        android:label="AdapterQuizLayoutDyn" >
+        android:label="Know your prakriti" >
         <action
             android:id="@+id/action_adapterQuizLayoutDyn_to_fragmentQuizResult"
             app:destination="@id/fragmentQuizResult"
@@ -109,7 +109,7 @@
     <fragment
         android:id="@+id/fragmentQuizResult"
         android:name="com.laaltentech.abou.fitnessapp.bottomnav.owner.fragments.FragmentQuizResult"
-        android:label="FragmentQuizResult" >
+        android:label="Prakriti Result" >
         <argument android:name="result_array"
             app:argType="string" />
     </fragment>
