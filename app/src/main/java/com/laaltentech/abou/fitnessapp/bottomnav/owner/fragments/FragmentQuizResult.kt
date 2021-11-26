@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.github.mikephil.charting.animation.Easing
 import com.github.mikephil.charting.charts.PieChart
 import com.github.mikephil.charting.components.Legend
@@ -30,12 +31,13 @@ import com.laaltentech.abou.fitnessapp.databinding.FragmentQuizResultLayoutBindi
 import com.laaltentech.abou.fitnessapp.di.Injectable
 import com.laaltentech.abou.fitnessapp.util.AppExecutors
 import com.laaltentech.abou.fitnessapp.util.FragmentDataBindingComponent
+import com.laaltentech.abou.fitnessapp.util.OnBackPressed
 import kotlinx.android.synthetic.main.activity_bottom_main_layout.*
 import kotlinx.android.synthetic.main.fragment_quiz_result_loader.view.*
 import javax.inject.Inject
 
 
-class FragmentQuizResult: Fragment(), Injectable {
+class FragmentQuizResult: Fragment(), Injectable, OnBackPressed {
     @Inject
     lateinit var appExecutors: AppExecutors
 
@@ -149,5 +151,9 @@ class FragmentQuizResult: Fragment(), Injectable {
         binding.pieChart.data = data
         binding.pieChart.invalidate()
         binding.pieChart.animateY(1400, Easing.EaseInOutQuad)
+    }
+
+    override fun onBackPressed() {
+        findNavController().popBackStack(R.id.fullBodyWorkout, false)
     }
 }

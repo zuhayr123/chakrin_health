@@ -49,7 +49,7 @@ class GlutesFragment : Fragment(), Injectable {
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
-        val sharedPref = this.activity!!.getSharedPreferences("pref", Context.MODE_PRIVATE)
+        val sharedPref = this.requireActivity().getSharedPreferences("pref", Context.MODE_PRIVATE)
         val isSub = sharedPref.getBoolean(CONSTANTS.IS_SUB, false)
         val handler = Handler()
 
@@ -77,21 +77,21 @@ class GlutesFragment : Fragment(), Injectable {
             handler.postDelayed({
                 when(counterDosha){
                     1 -> {
-                        onImageButtonClick("vata", context = context!!)
+                        onImageButtonClick("vata", context = requireContext())
                     }
 
                     2-> {
-                        onImageButtonClick("pitta", context = context!!)
+                        onImageButtonClick("pitta", context = requireContext())
                     }
 
                     3-> {
-                        onImageButtonClick("kapha", context = context!!)
+                        onImageButtonClick("kapha", context = requireContext())
                         counterDosha = 0
                     }
                 }
             },1000)
         }
-        autoRefresh(context = context!!)
+        autoRefresh(context = requireContext())
         super.onActivityCreated(savedInstanceState)
     }
 
@@ -100,51 +100,53 @@ class GlutesFragment : Fragment(), Injectable {
         val delay : Long = 4000 //milliseconds
         h.postDelayed(Runnable {
             Log.e("Counter", "The counter value is $counter")
-            when(counter){
-                1 -> {
-                    binding.titleElement.text = "Earth"
-                    binding.imageView.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.ic_earth))
-                    binding.imageView.startAnimation(AnimationUtils.loadAnimation(activity, R.anim.fade_accelerated))
-                    binding.titleElement.startAnimation(AnimationUtils.loadAnimation(activity, R.anim.fade_accelerated))
-                    binding.view.startAnimation(AnimationUtils.loadAnimation(activity, R.anim.fade_accelerated))
-                }
+            if(activity != null){
+                when(counter){
+                    1 -> {
+                        binding.titleElement.text = "Earth"
+                        binding.imageView.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.ic_earth))
+                        binding.imageView.startAnimation(AnimationUtils.loadAnimation(activity, R.anim.fade_accelerated))
+                        binding.titleElement.startAnimation(AnimationUtils.loadAnimation(activity, R.anim.fade_accelerated))
+                        binding.view.startAnimation(AnimationUtils.loadAnimation(activity, R.anim.fade_accelerated))
+                    }
 
-                2 -> {
-                    binding.titleElement.text = "Air"
-                    binding.imageView.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.ic_air))
-                    binding.imageView.startAnimation(AnimationUtils.loadAnimation(activity, R.anim.fade_accelerated))
-                    binding.titleElement.startAnimation(AnimationUtils.loadAnimation(activity, R.anim.fade_accelerated))
-                    binding.view.startAnimation(AnimationUtils.loadAnimation(activity, R.anim.fade_accelerated))
-                }
+                    2 -> {
+                        binding.titleElement.text = "Air"
+                        binding.imageView.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.ic_air))
+                        binding.imageView.startAnimation(AnimationUtils.loadAnimation(activity, R.anim.fade_accelerated))
+                        binding.titleElement.startAnimation(AnimationUtils.loadAnimation(activity, R.anim.fade_accelerated))
+                        binding.view.startAnimation(AnimationUtils.loadAnimation(activity, R.anim.fade_accelerated))
+                    }
 
-                3 -> {
-                    binding.titleElement.text = "Fire"
-                    binding.imageView.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.ic_fire))
-                    binding.imageView.startAnimation(AnimationUtils.loadAnimation(activity, R.anim.fade_accelerated))
-                    binding.titleElement.startAnimation(AnimationUtils.loadAnimation(activity, R.anim.fade_accelerated))
-                    binding.view.startAnimation(AnimationUtils.loadAnimation(activity, R.anim.fade_accelerated))
-                }
+                    3 -> {
+                        binding.titleElement.text = "Fire"
+                        binding.imageView.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.ic_fire))
+                        binding.imageView.startAnimation(AnimationUtils.loadAnimation(activity, R.anim.fade_accelerated))
+                        binding.titleElement.startAnimation(AnimationUtils.loadAnimation(activity, R.anim.fade_accelerated))
+                        binding.view.startAnimation(AnimationUtils.loadAnimation(activity, R.anim.fade_accelerated))
+                    }
 
-                4 -> {
-                    binding.titleElement.text = "Space"
-                    binding.imageView.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.ic_ether))
-                    binding.imageView.startAnimation(AnimationUtils.loadAnimation(activity, R.anim.fade_accelerated))
-                    binding.titleElement.startAnimation(AnimationUtils.loadAnimation(activity, R.anim.fade_accelerated))
-                    binding.view.startAnimation(AnimationUtils.loadAnimation(activity, R.anim.fade_accelerated))
-                }
+                    4 -> {
+                        binding.titleElement.text = "Space"
+                        binding.imageView.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.ic_ether))
+                        binding.imageView.startAnimation(AnimationUtils.loadAnimation(activity, R.anim.fade_accelerated))
+                        binding.titleElement.startAnimation(AnimationUtils.loadAnimation(activity, R.anim.fade_accelerated))
+                        binding.view.startAnimation(AnimationUtils.loadAnimation(activity, R.anim.fade_accelerated))
+                    }
 
-                5 -> {
-                    binding.titleElement.text = "Water"
-                    binding.imageView.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.ic_water))
-                    binding.imageView.startAnimation(AnimationUtils.loadAnimation(activity, R.anim.fade_accelerated))
-                    binding.titleElement.startAnimation(AnimationUtils.loadAnimation(activity, R.anim.fade_accelerated))
-                    binding.view.startAnimation(AnimationUtils.loadAnimation(activity, R.anim.fade_accelerated))
-                    counter = 0
+                    5 -> {
+                        binding.titleElement.text = "Water"
+                        binding.imageView.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.ic_water))
+                        binding.imageView.startAnimation(AnimationUtils.loadAnimation(activity, R.anim.fade_accelerated))
+                        binding.titleElement.startAnimation(AnimationUtils.loadAnimation(activity, R.anim.fade_accelerated))
+                        binding.view.startAnimation(AnimationUtils.loadAnimation(activity, R.anim.fade_accelerated))
+                        counter = 0
+                    }
                 }
+                counter += 1
+                //Activity written here will be called every 2 sec
+                autoRefresh(context = context)
             }
-            counter += 1
-            //Activity written here will be called every 2 sec
-            autoRefresh(context = context)
         }, delay)
     }
 

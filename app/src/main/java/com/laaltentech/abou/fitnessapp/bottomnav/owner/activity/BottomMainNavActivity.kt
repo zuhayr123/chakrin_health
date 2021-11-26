@@ -2,6 +2,7 @@ package com.laaltentech.abou.fitnessapp.bottomnav.owner.activity
 
 import android.os.Bundle
 import android.util.Log
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
@@ -12,8 +13,12 @@ import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.laaltentech.abou.fitnessapp.R
 import com.laaltentech.abou.fitnessapp.databinding.ActivityBottomMainLayoutBinding
+import com.laaltentech.abou.fitnessapp.util.OnBackPressed
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.support.HasSupportFragmentInjector
+import kotlinx.android.synthetic.main.activity_bottom_main_layout.*
+import kotlinx.android.synthetic.main.activity_camera_layout.*
+import kotlinx.android.synthetic.main.activity_camera_layout.nav_host
 import javax.inject.Inject
 
 class BottomMainNavActivity : AppCompatActivity(), HasSupportFragmentInjector {
@@ -40,5 +45,25 @@ class BottomMainNavActivity : AppCompatActivity(), HasSupportFragmentInjector {
         navView.setupWithNavController(navController)
 
         Log.e("Layout", "this layout was  created")
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        Log.e("onback","on options item selected was called")
+        Log.e("itemId", "the item id is ${item.itemId} and item name is ${android.R.id.home}")
+        return if(item.itemId == android.R.id.home){
+            onBackPressed()
+            true
+        } else false
+    }
+
+    override fun onBackPressed() {
+        Log.e("onback","On back pressed was called")
+        val currentFragment = nav_host_fragment.childFragmentManager.fragments[0]
+        if (currentFragment is OnBackPressed)
+            currentFragment.onBackPressed()
+
+        else{
+            super.onBackPressed()
+        }
     }
 }

@@ -53,7 +53,7 @@
         android:id="@+id/glutesFragment"
         tools:layout="@layout/fragment_glutes_layout"
         android:name="com.laaltentech.abou.fitnessapp.bottomnav.owner.fragments.GlutesFragment"
-        android:label="GlutesFragment" >
+        android:label="Doshas" >
         <action
             android:id="@+id/action_glutesFragment_to_fragmentSubscribeCheck"
             app:destination="@id/fragmentSubscribeCheck" />
@@ -62,7 +62,7 @@
         android:id="@+id/fullBodyWorkout"
         tools:layout="@layout/fragment_full_body_layout"
         android:name="com.laaltentech.abou.fitnessapp.bottomnav.owner.fragments.FullBodyWorkout"
-        android:label="FullBodyWorkout" >
+        android:label="Prakriti" >
         <action
             android:id="@+id/action_fullBodyWorkout_to_fragmentSubscribeCheck"
             app:destination="@id/fragmentSubscribeCheck" />
@@ -77,7 +77,7 @@
     <fragment
         android:id="@+id/upperBodyWorkout"
         android:name="com.laaltentech.abou.fitnessapp.bottomnav.owner.fragments.UpperBodyWorkout"
-        android:label="UpperBodyWorkout" >
+        android:label="Dincharya" >
         <action
             android:id="@+id/action_upperBodyWorkout_to_fragmentSubscribeCheck"
             app:destination="@id/fragmentSubscribeCheck" />
@@ -85,7 +85,7 @@
     <fragment
         android:id="@+id/fragmentOthersWorkout"
         android:name="com.laaltentech.abou.fitnessapp.bottomnav.owner.fragments.FragmentOthersWorkout"
-        android:label="FragmentOthersWorkout" >
+        android:label="Ritu" >
         <action
             android:id="@+id/action_fragmentOthersWorkout_to_fragmentSubscribeCheck"
             app:destination="@id/fragmentSubscribeCheck" />

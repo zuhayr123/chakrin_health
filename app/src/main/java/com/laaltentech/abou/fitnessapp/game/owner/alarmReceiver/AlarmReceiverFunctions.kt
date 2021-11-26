@@ -17,24 +17,12 @@ class AlarmReceiverFunctions : BroadcastReceiver(), LocationListener {
 
     lateinit var location : Location
 
-    override fun onLocationChanged(p0: Location?) {
-        if(p0 != null) {
-            location = p0
-            Log.e("TAG", "location is lat : ${p0.latitude} and lon is : ${p0.longitude}")
-        }
+    override fun onLocationChanged(p0: Location) {
+        TODO("Not yet implemented")
     }
 
     override fun onStatusChanged(p0: String?, p1: Int, p2: Bundle?) {
         Log.e("TAG", "location status changed")
-    }
-
-    override fun onProviderEnabled(p0: String?) {
-        Log.e("TAG", "location is enabled")
-    }
-
-    override fun onProviderDisabled(p0: String?) {
-        Log.e("TAG", "location is disabled")
-
     }
 
     @SuppressLint("MissingPermission")

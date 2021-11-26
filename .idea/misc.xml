@@ -8,8 +8,23 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/add_image_background.xml" value="0.2708333333333333" />
+        <entry key="app/src/main/res/drawable/add_image_foreground.xml" value="0.2708333333333333" />
+        <entry key="app/src/main/res/drawable/arrow_background.xml" value="0.2708333333333333" />
+        <entry key="app/src/main/res/drawable/camera_click_background.xml" value="0.2708333333333333" />
+        <entry key="app/src/main/res/drawable/done_click_background.xml" value="0.2708333333333333" />
+        <entry key="app/src/main/res/drawable/five_elements_image_background.xml" value="0.2708333333333333" />
+        <entry key="app/src/main/res/drawable/home.xml" value="0.2708333333333333" />
+        <entry key="app/src/main/res/drawable/ic_air.xml" value="0.2708333333333333" />
         <entry key="app/src/main/res/drawable/logo_clip.xml" value="0.40520833333333334" />
+        <entry key="app/src/main/res/layout/activity_bottom_main_layout.xml" value="0.3944746376811594" />
+        <entry key="app/src/main/res/layout/activity_camera_layout.xml" value="0.2546875" />
+        <entry key="app/src/main/res/layout/fragment_glutes_layout.xml" value="0.2546875" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.14361702127659576" />
+        <entry key="app/src/main/res/layout/fragment_quiz.xml" value="0.2546875" />
+        <entry key="app/src/main/res/layout/fragnent_others_layout.xml" value="0.2546875" />
+        <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.4036458333333333" />
+        <entry key="app/src/main/res/menu/logout_menu_source.xml" value="0.4036458333333333" />
       </map>
     </option>
   </component>
