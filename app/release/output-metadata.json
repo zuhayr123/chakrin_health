@@ -4,7 +4,7 @@
     "type": "APK",
     "kind": "Directory"
   },
-  "applicationId": "com.laaltentech.abou.fitnessapp",
+  "applicationId": "com.dmvi.abou.myapplication",
   "variantName": "release",
   "elements": [
     {

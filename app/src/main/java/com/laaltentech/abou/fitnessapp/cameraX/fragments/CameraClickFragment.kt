@@ -1,6 +1,8 @@
 package com.laaltentech.abou.fitnessapp.cameraX.fragments
 
+import android.Manifest
 import android.annotation.SuppressLint
+import android.content.pm.PackageManager
 import android.os.Bundle
 import android.os.Environment
 import android.util.Log
@@ -10,6 +12,7 @@ import android.view.ViewGroup
 import androidx.camera.core.CameraX
 import androidx.camera.core.ImageCapture
 import androidx.camera.core.ImageCaptureException
+import androidx.core.app.ActivityCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -26,6 +29,7 @@ import kotlinx.coroutines.launch
 import java.io.File
 import java.util.concurrent.Executors
 import javax.inject.Inject
+import androidx.core.content.ContextCompat
 
 class CameraClickFragment: Fragment() , Injectable {
     @Inject
@@ -55,6 +59,23 @@ class CameraClickFragment: Fragment() , Injectable {
 
         super.onActivityCreated(savedInstanceState)
 
+        if (ActivityCompat.checkSelfPermission(
+                requireContext(),
+                Manifest.permission.CAMERA
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            ActivityCompat.requestPermissions(requireActivity(), arrayOf(Manifest.permission.CAMERA), 200);
+
+
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return
+        }
         binding.viewCamera.bindToLifecycle(this)
 
         binding.clickImage.setOnClickListener {
@@ -67,11 +88,11 @@ class CameraClickFragment: Fragment() , Injectable {
     private fun takePicture() {
 
         val storageDir =
-            Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES)
+            context?.externalCacheDir
 
         val executor = Executors.newSingleThreadExecutor()
         // trigger image capture
-        val outputDirectory: File = storageDir
+        val outputDirectory: File? = storageDir
 //        val photoFile = File(outputDirectory, "${System.currentTimeMillis()}.jpg")
         var photosCompressed = File(outputDirectory, "${System.currentTimeMillis()}.jpg")
         binding.viewCamera.takePicture(photosCompressed, executor,
@@ -100,7 +121,7 @@ class CameraClickFragment: Fragment() , Injectable {
                 }
 
                 override fun onError(exception: ImageCaptureException) {
-                    binding.clickImage.isEnabled = true
+//                    binding.clickImage.isEnabled = true
                     Log.e("Image", exception.toString())
                     //todo call if any error occurs
                 }
