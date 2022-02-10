@@ -1,6 +1,7 @@
 package com.laaltentech.abou.fitnessapp.login.owner.fragments
 
 import android.Manifest
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.media.MediaRecorder
 import android.os.Bundle
@@ -15,6 +16,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.laaltentech.abou.fitnessapp.R
+import com.laaltentech.abou.fitnessapp.bottomnav.owner.activity.BottomMainNavActivity
 import com.laaltentech.abou.fitnessapp.databinding.LoginOrSignupBinding
 import com.laaltentech.abou.fitnessapp.di.Injectable
 import com.laaltentech.abou.fitnessapp.util.AppExecutors
@@ -60,6 +62,11 @@ class LoginOrSignupChoose : Fragment(), Injectable {
         binding.signUp.setOnClickListener {
             val action = LoginOrSignupChooseDirections.actionFragmentLoginOrSignupToSignUp2()
             findNavController().navigate(action)
+        }
+
+        binding.bypass.setOnClickListener {
+            val intent  = Intent(activity, BottomMainNavActivity::class.java)
+            activity?.startActivity(intent)
         }
 
         askForPermission(Manifest.permission.CAMERA, MediaRecorder.VideoSource.CAMERA)

@@ -63,9 +63,9 @@
     <string name="furnace_temperature">Furnace Temperature</string>
     <string name="motor_rpm">Motor RPM</string>
     <string name="coal_level">Coal Level</string>
-    <string name="shloka_hindi_l1">ॐ नमो भगवते वासुदेवाय धन्वंतरये </string>
-    <string name="shloka_hindi_l2">अमृतकलश हस्ताय सर्वामयविनाशनाय  </string>
-    <string name="shloka_hindi_l3">त्रिलोक्यनाथाय श्री  महाविष्णवे   नमः   ||  </string>
+    <string name="shloka_hindi_l1">अच्युताय नमः</string>
+    <string name="shloka_hindi_l2">अनन्ताय नमः</string>
+    <string name="shloka_hindi_l3">गोविन्दाय नमः</string>
 
     <string-array name="loader_array">
         <item>@string/loader_circulating_circle</item>

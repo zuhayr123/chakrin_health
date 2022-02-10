@@ -8,6 +8,7 @@
         android:layout_height="match_parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="8dp"
@@ -22,12 +23,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="64dp"
                 android:text="@string/login"
-                android:transitionName="@string/login"
                 android:textColor="@color/black"
-                app:strokeColor="@color/colorPrimaryDark"
+                android:transitionName="@string/login"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toTopOf="parent"
+                app:strokeColor="@color/colorPrimaryDark">
 
             </com.google.android.material.button.MaterialButton>
 
@@ -48,17 +49,29 @@
                 android:id="@+id/signUp"
                 android:layout_width="match_parent"
                 android:layout_height="64dp"
+                android:backgroundTint="@color/colorPrimaryDark"
                 android:text="@string/sign_up"
                 android:transitionName="@string/sign_up"
-                android:backgroundTint="@color/colorPrimaryDark"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView"
-                >
+                app:layout_constraintTop_toBottomOf="@+id/textView">
 
             </com.google.android.material.button.MaterialButton>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/bypass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="bypass"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout3"
+            app:layout_constraintVertical_bias="0.42000002" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

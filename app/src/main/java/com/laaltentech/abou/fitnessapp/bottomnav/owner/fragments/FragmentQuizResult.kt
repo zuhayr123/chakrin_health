@@ -137,9 +137,9 @@ class FragmentQuizResult: Fragment(), Injectable, OnBackPressed {
         entries.add(PieEntry((pitta.toFloat()/100), "Pitta"))
         entries.add(PieEntry((kapha.toFloat()/100), "Kapha"))
         val colors: ArrayList<Int> = ArrayList()
+        colors.add(resources.getColor(R.color.dot_active_screen3))
         colors.add(resources.getColor(R.color.colorPrimary))
         colors.add(resources.getColor(R.color.bg_color_for_welcome_slide_two))
-        colors.add(resources.getColor(R.color.colorAccentNew))
 
         val dataSet = PieDataSet(entries, "")
         dataSet.colors = colors

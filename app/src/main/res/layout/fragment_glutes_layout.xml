@@ -107,7 +107,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
-                        android:text="Dharti"
+                        android:text="Earth"
                         android:textSize="20sp"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="@+id/imageView"
@@ -126,11 +126,12 @@
 
                     <TextView
                         android:layout_width="0dp"
-                        android:layout_height="60dp"
+                        android:layout_height="wrap_content"
                         android:id="@+id/text_minor_element"
                         android:layout_marginTop="4dp"
                         android:layout_marginEnd="8dp"
-                        android:text="These elements function in synergy to produce 3 types of energies which are called ‘Doshas’."
+                        android:paddingBottom="8dp"
+                        android:text="These elements function in synergy to produce 3 main energies of the body which are called ‘Doshas’."
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="@+id/view"
                         app:layout_constraintTop_toBottomOf="@+id/view" />
