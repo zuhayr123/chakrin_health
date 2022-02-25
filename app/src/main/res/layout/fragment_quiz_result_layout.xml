@@ -54,6 +54,27 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView32" />
+
+                <TextView
+                    android:id="@+id/topic_title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@+id/pie_chart"
+                    app:layout_constraintStart_toStartOf="@+id/pie_chart"
+                    app:layout_constraintTop_toBottomOf="@+id/pie_chart"
+                    tools:text="Vata" />
+
+                <TextView
+                    android:id="@+id/result_details"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintEnd_toEndOf="@+id/pie_chart"
+                    app:layout_constraintStart_toStartOf="@+id/pie_chart"
+                    app:layout_constraintTop_toBottomOf="@+id/topic_title"
+                    android:layout_marginBottom="8dp"/>
             </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>
 

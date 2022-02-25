@@ -67,6 +67,11 @@
     <string name="shloka_hindi_l2">अनन्ताय नमः</string>
     <string name="shloka_hindi_l3">गोविन्दाय नमः</string>
 
+    <string name="vata_details">Vata dwells in the colon, hips, thighs, ears, bones and sense of touch.\n Management of increased Vata(Oct - Dec)\nThe cold quality of vata may lead you to feel cold more easily than others around you, have cold hands and feet, and crave warmth.\n- Abhyanga with warm oil.\n- Avoiding dry &amp; cold foods,have warm food &amp; water. Add soup &amp; sweet foods to your diet.\n- Warm clothes especially cover your head &amp; feet.</string>
+    <string name="kapha_details">Kapha dwells in lungs,respiratory tract,semen,muscles,fat,and brain.\nManagement of Increased Kapha(Dec - Feb)\nThe main qualities of Kapha are cold,heavy,steady &amp; slow.\n- Kapha being cold,it is essential that special care is taken in winter months. Staying as warm as possible - fully covered,warm foods &amp; drinks,loving company all benefit the Kapha type.\nDo the following -\n- Abhyanga(oil massage) with sesame oil.</string>
+    <string name="pitta_details">Pitta dwells in the small intestine, stomach, sweat, sebum, blood, plasma, and sense of sight.\nManagement of increased Pitta(April-June &amp; Aug-Oct)\nThe main qualities of pitta are oily, sharp, hot, light, fleshy smelling, spreading, and liquid.\n- Pitta is inherently hot—hot weather, hot foods, the hot seasons &amp; times of day, &amp; even hot emotions can increase pitta.\nDo the following - \n- Abhyanga or Padabhyanga with coconut oil in hot weather.\n- Foods which are sweet,bitter &amp; astringent are best in summer to manage pitta.\n- Meditation to reduce mental heat &amp; calm the nerves.\n- Avoid intense exercise</string>
+
+
     <string-array name="loader_array">
         <item>@string/loader_circulating_circle</item>
         <item>@string/loader_infinity</item>

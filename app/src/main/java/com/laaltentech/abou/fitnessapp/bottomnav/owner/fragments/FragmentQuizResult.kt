@@ -83,11 +83,58 @@ class FragmentQuizResult: Fragment(), Injectable, OnBackPressed {
             AnimationUtils.loadAnimation(activity, R.anim.rotate_indefinitely)
         )
 
+        when(prominentResult(result = percentageResult)){
+            "Vata"-> {
+                binding.topicTitle.text = "Vata"
+                binding.resultDetails.text = resources.getString(R.string.vata_details)
+            }
+
+            "Kapha" -> {
+                binding.topicTitle.text = "Kapha"
+                binding.resultDetails.text = resources.getString(R.string.kapha_details)
+            }
+
+            "Pitta" -> {
+                binding.topicTitle.text = "Pitta"
+                binding.resultDetails.text = resources.getString(R.string.pitta_details)
+            }
+        }
+
         val h = Handler()
             h.postDelayed(Runnable {
                 binding.loaderNew.root.visibility = View.GONE
             }, 4500)
         super.onActivityCreated(savedInstanceState)
+    }
+
+    fun prominentResult(result : ArrayList<Int>): String{
+        var prominentResult = -1
+        var currentValue = 0;
+        result.forEachIndexed{index, element ->
+            if(currentValue<element){
+                currentValue = element
+                prominentResult = index
+            }
+        }
+
+        when(prominentResult){
+            0 -> {
+                return "Kapha"
+            }
+
+            1 -> {
+                return "Vata"
+            }
+
+            2 -> {
+                return "Pitta"
+            }
+
+            else -> {
+                return "Result"
+            }
+        }
+
     }
 
     fun calculateResult(data : QuestionDataArrayModel) : ArrayList<Int>{
@@ -133,9 +180,9 @@ class FragmentQuizResult: Fragment(), Injectable, OnBackPressed {
 
     private fun loadPieChartData(vata: Int, pitta: Int, kapha: Int) {
         val entries: ArrayList<PieEntry> = ArrayList()
-        entries.add(PieEntry((vata.toFloat()/100), "Vata"))
+        entries.add(PieEntry((vata.toFloat()/100), "Kapha"))
         entries.add(PieEntry((pitta.toFloat()/100), "Pitta"))
-        entries.add(PieEntry((kapha.toFloat()/100), "Kapha"))
+        entries.add(PieEntry((kapha.toFloat()/100), "Vata"))
         val colors: ArrayList<Int> = ArrayList()
         colors.add(resources.getColor(R.color.dot_active_screen3))
         colors.add(resources.getColor(R.color.colorPrimary))
