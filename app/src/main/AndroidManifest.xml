@@ -21,6 +21,11 @@
         android:roundIcon="@drawable/logo_clip"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+        <meta-data
+            android:name="com.razorpay.ApiKey"
+            android:value="rzp_test_whnmgxeDFWxkTb"
+            />
         <activity android:name=".login.owner.activity.LoginActivity"
             android:exported="true">
             <intent-filter>

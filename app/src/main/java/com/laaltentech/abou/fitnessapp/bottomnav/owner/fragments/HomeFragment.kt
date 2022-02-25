@@ -130,7 +130,7 @@ class HomeFragment : Fragment(), Injectable {
         val h = Handler()
         val delay : Long = 4000 //milliseconds
         h.postDelayed(Runnable {
-            Log.e("Counter", "The counter value is $counter")
+//            Log.e("Counter", "The counter value is $counter")
             if(activity != null){
                 when(counter){
                     1 -> {

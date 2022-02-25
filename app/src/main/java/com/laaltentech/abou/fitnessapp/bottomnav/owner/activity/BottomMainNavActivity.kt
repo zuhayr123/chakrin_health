@@ -3,6 +3,7 @@ package com.laaltentech.abou.fitnessapp.bottomnav.owner.activity
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
@@ -14,6 +15,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.laaltentech.abou.fitnessapp.R
 import com.laaltentech.abou.fitnessapp.databinding.ActivityBottomMainLayoutBinding
 import com.laaltentech.abou.fitnessapp.util.OnBackPressed
+import com.razorpay.PaymentResultListener
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.support.HasSupportFragmentInjector
 import kotlinx.android.synthetic.main.activity_bottom_main_layout.*
@@ -21,7 +23,8 @@ import kotlinx.android.synthetic.main.activity_camera_layout.*
 import kotlinx.android.synthetic.main.activity_camera_layout.nav_host
 import javax.inject.Inject
 
-class BottomMainNavActivity : AppCompatActivity(), HasSupportFragmentInjector {
+class BottomMainNavActivity : AppCompatActivity(), HasSupportFragmentInjector,
+    PaymentResultListener {
 
     lateinit var binding: ActivityBottomMainLayoutBinding
 
@@ -65,5 +68,13 @@ class BottomMainNavActivity : AppCompatActivity(), HasSupportFragmentInjector {
         else{
             super.onBackPressed()
         }
+    }
+
+    override fun onPaymentSuccess(p0: String?) {
+        Toast.makeText(this, "Payment Success", Toast.LENGTH_LONG).show()
+    }
+
+    override fun onPaymentError(p0: Int, p1: String?) {
+        Toast.makeText(this, "Oops! Payment Failed!!", Toast.LENGTH_LONG).show()
     }
 }
