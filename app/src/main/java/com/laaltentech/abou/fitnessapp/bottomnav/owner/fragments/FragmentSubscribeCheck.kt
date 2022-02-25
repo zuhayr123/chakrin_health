@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isNotEmpty
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -70,18 +71,18 @@ class FragmentSubscribeCheck : Fragment(), Injectable, PaymentResultListener {
 
         subscribeStatusUpdateViewModel.phoneNumber = phoneNumber!!
         binding.submit.setOnClickListener {
-            razorPaySetup()
-//            if(binding.firstName.isNotEmpty() && binding.lastName.isNotEmpty() && binding.regPhoneNumber.isNotEmpty()){
-//                subscribeStatusUpdateViewModel.apiCall.value = "available"
-//            }
+            if(binding.firstName.isNotEmpty() && binding.lastName.isNotEmpty() && binding.regPhoneNumber.isNotEmpty()){
+                subscribeStatusUpdateViewModel.apiCall.value = "available"
+                razorPaySetup()
+            }
 
-//            else{
-//                Toast.makeText(
-//                    activity,
-//                    "One of the fields are empty!!",
-//                    Toast.LENGTH_LONG
-//                ).show()
-//            }
+            else{
+                Toast.makeText(
+                    activity,
+                    "One of the fields are empty!!",
+                    Toast.LENGTH_LONG
+                ).show()
+            }
         }
         initViewModel()
         super.onActivityCreated(savedInstanceState)

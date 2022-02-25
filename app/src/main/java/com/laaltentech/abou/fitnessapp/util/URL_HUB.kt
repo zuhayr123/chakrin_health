@@ -2,8 +2,8 @@ package com.laaltentech.abou.fitnessapp.util
 
 class URL_HUB{
     companion object{
-        val BASE_URL = "https://ekansh-app-backend.herokuapp.com/api/signup/"
-        val PIC_UPLOAD_URL = "https://ekansh-app-backend.herokuapp.com/file"
+        val BASE_URL = "https://chakrin-health-app.herokuapp.com/api/signup/"
+        val PIC_UPLOAD_URL = "https://chakrin-health-app.herokuapp.com/file"
         val INSERT_GAME_DATA = "game_data"
         val POST_USER_DETAILS = BASE_URL +"users"
         val FETCH_ALL_USER_DETAILS = BASE_URL +"users"
