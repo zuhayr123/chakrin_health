@@ -131,4 +131,8 @@ dependencies {
     implementation 'id.zelory:compressor:3.0.0'
 
     implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+
+    // https://mvnrepository.com/artifact/com.razorpay/checkout
+    implementation group: 'com.razorpay', name: 'checkout', version: '1.6.17'
+
 }
