@@ -33,7 +33,18 @@
             app:popExitAnim="@android:anim/fade_out" />
         <action
             android:id="@+id/action_navigation_home_to_fragmentOthersWorkout"
-            app:destination="@id/fragmentOthersWorkout" />
+            app:destination="@id/fragmentOthersWorkout"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out" />
+        <action
+            android:id="@+id/action_navigation_home_to_fragmentFreeWorkouts"
+            app:destination="@id/fragmentFreeWorkouts"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out" />
     </fragment>
     <fragment
         android:id="@+id/navigation_meditate"
@@ -112,5 +123,18 @@
         android:label="Prakriti Result" >
         <argument android:name="result_array"
             app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentFreeWorkouts"
+        tools:layout="@layout/fragment_exercise_layout"
+        android:name="com.laaltentech.abou.fitnessapp.bottomnav.owner.fragments.FragmentFreeWorkouts"
+        android:label="Free Workouts" >
+        <action
+            android:id="@+id/action_navigation_home_to_fragmentFreeWorkouts_"
+            app:destination="@id/fragmentQuizResult"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out" />
     </fragment>
 </navigation>

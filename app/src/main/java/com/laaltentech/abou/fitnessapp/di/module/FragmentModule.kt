@@ -65,4 +65,7 @@ abstract class FragmentModule {
 
     @ContributesAndroidInjector
     abstract fun contributeFragmentQuizResult(): FragmentQuizResult
+
+    @ContributesAndroidInjector
+    abstract fun contributeFragmentFreeWorkouts(): FragmentFreeWorkouts
 }

@@ -30,6 +30,7 @@
                 android:id="@+id/cardView"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
+                android:backgroundTint="@color/colorTransparent"
                 android:layout_marginStart="16dp"
                 app:cardCornerRadius="75dp"
                 app:cardPreventCornerOverlap="false"
@@ -39,6 +40,7 @@
 
                 <ImageView
                     android:id="@+id/profile_image_profile"
+                    android:src="@drawable/ic_avatar"
                     android:layout_width="150dp"
                     android:layout_height="150dp"
                     android:scaleType="centerCrop" />

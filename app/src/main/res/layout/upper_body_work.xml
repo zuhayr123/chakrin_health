@@ -68,7 +68,7 @@
                     android:id="@+id/textView30"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Wake Up Before Surise"
+                    android:text="Wake Up Before Sunrise"
                     app:layout_constraintEnd_toEndOf="@+id/textView29"
                     app:layout_constraintStart_toStartOf="@+id/textView29"
                     app:layout_constraintTop_toBottomOf="@+id/textView29" />

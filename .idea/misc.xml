@@ -9,12 +9,20 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="../../Android Projects/chakrin_health/app/src/main/res/layout/checkout_layout.xml" value="0.23278985507246377" />
+        <entry key="../../Android Projects/chakrin_health/app/src/main/res/layout/fragment_exercise_layout.xml" value="0.4036458333333333" />
+        <entry key="../../Android Projects/chakrin_health/app/src/main/res/layout/fragment_flash_layout.xml" value="0.4036458333333333" />
+        <entry key="../../Android Projects/chakrin_health/app/src/main/res/layout/fragment_full_body_layout.xml" value="0.4036458333333333" />
+        <entry key="../../Android Projects/chakrin_health/app/src/main/res/layout/fragment_game_central_instructions.xml" value="0.4036458333333333" />
         <entry key="../../Android Projects/chakrin_health/app/src/main/res/layout/fragment_glutes_layout.xml" value="0.23958333333333334" />
         <entry key="../../Android Projects/chakrin_health/app/src/main/res/layout/fragment_home.xml" value="0.23958333333333334" />
+        <entry key="../../Android Projects/chakrin_health/app/src/main/res/layout/fragment_image_viewer.xml" value="0.4036458333333333" />
+        <entry key="../../Android Projects/chakrin_health/app/src/main/res/layout/fragment_profile.xml" value="0.4036458333333333" />
         <entry key="../../Android Projects/chakrin_health/app/src/main/res/layout/fragment_quiz_result_layout.xml" value="0.23958333333333334" />
+        <entry key="../../Android Projects/chakrin_health/app/src/main/res/layout/fragment_signup.xml" value="0.4036458333333333" />
         <entry key="../../Android Projects/chakrin_health/app/src/main/res/layout/fragment_subscribe_layout.xml" value="0.23278985507246377" />
         <entry key="../../Android Projects/chakrin_health/app/src/main/res/layout/fragnent_others_layout.xml" value="0.1578125" />
         <entry key="../../Android Projects/chakrin_health/app/src/main/res/layout/login_or_signup.xml" value="0.2427536231884058" />
+        <entry key="../../Android Projects/chakrin_health/app/src/main/res/layout/upper_body_work.xml" value="0.4036458333333333" />
         <entry key="app/src/main/res/drawable/add_image_background.xml" value="0.2708333333333333" />
         <entry key="app/src/main/res/drawable/add_image_foreground.xml" value="0.2708333333333333" />
         <entry key="app/src/main/res/drawable/arrow_background.xml" value="0.2708333333333333" />

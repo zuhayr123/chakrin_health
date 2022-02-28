@@ -82,6 +82,11 @@ class HomeFragment : Fragment(), Injectable {
             findNavController().navigate(action)
         }
 
+        binding.freeExercises.setOnClickListener {
+            val action = HomeFragmentDirections.actionNavigationHomeToFragmentFreeWorkouts()
+            findNavController().navigate(action)
+        }
+
         autoRefresh(requireContext());
         super.onActivityCreated(savedInstanceState)
     }
@@ -181,6 +186,7 @@ class HomeFragment : Fragment(), Injectable {
                     10 -> {
                         binding.textView3.text = "Eat your meals without any distraction."
                         binding.textView3.startAnimation(AnimationUtils.loadAnimation(activity, R.anim.fade_accelerated))
+                        counter = 0
                     }
                 }
                 counter += 1
