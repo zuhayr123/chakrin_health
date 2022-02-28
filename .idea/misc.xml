@@ -8,6 +8,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../../Android Projects/chakrin_health/app/src/main/res/drawable/logo_clip.xml" value="0.2265625" />
+        <entry key="../../Android Projects/chakrin_health/app/src/main/res/drawable/logo_setup_foreground.xml" value="0.2265625" />
         <entry key="../../Android Projects/chakrin_health/app/src/main/res/layout/checkout_layout.xml" value="0.23278985507246377" />
         <entry key="../../Android Projects/chakrin_health/app/src/main/res/layout/fragment_exercise_layout.xml" value="0.4036458333333333" />
         <entry key="../../Android Projects/chakrin_health/app/src/main/res/layout/fragment_flash_layout.xml" value="0.4036458333333333" />
