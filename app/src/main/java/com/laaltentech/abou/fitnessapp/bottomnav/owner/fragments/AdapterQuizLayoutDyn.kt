@@ -70,7 +70,7 @@ class AdapterQuizLayoutDyn : Fragment() {
         createQuestions(title = "Chest", optionA = "Flat", optionB = "Medium", optionC = "Expanded")
         createQuestions(title = "Hips", optionA = "Slender", optionB = "Moderate", optionC = "Big")
         createQuestions(title = "Joints", optionA = "Small & Cracking", optionB = "Moderate", optionC = "Large & lubricated")
-        createQuestions(title = "Joints", optionA = "Small & Cracking", optionB = "Moderate", optionC = "Big")
+//        createQuestions(title = "Joints", optionA = "Small & Cracking", optionB = "Moderate", optionC = "Big")
         createQuestions(title = "Weight changes", optionA = "Easy to lose,hard to gain", optionB = "Easy to lose,easy to gain", optionC = "Hard to lose,easy to gain")
         createQuestions(title = "Digestion", optionA = "Irregular,gas", optionB = "Quick,causes acidity & burning", optionC = "Slow")
         createQuestions(title = "Taste preference", optionA = "Sweet,salty & sour", optionB = "Sweet,bitter & astringent", optionC = "Bitter,astringent & pungent")
