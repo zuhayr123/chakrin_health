@@ -68,4 +68,10 @@ abstract class FragmentModule {
 
     @ContributesAndroidInjector
     abstract fun contributeFragmentFreeWorkouts(): FragmentFreeWorkouts
+
+    @ContributesAndroidInjector
+    abstract fun contributeFragmentBodyWeightWorkout(): FragmentBodyWeightWorkout
+
+    @ContributesAndroidInjector
+    abstract fun contributeFragmentFreeWeightTrain(): FragmentFreeWeightTrain
 }

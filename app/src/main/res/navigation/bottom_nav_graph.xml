@@ -136,5 +136,27 @@
             app:exitAnim="@android:anim/fade_out"
             app:popEnterAnim="@android:anim/fade_in"
             app:popExitAnim="@android:anim/fade_out" />
+        <action
+            android:id="@+id/action_fragmentFreeWorkouts_to_fragmentFreeWeightTrain"
+            app:destination="@id/fragmentFreeWeightTrain"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out"/>
+        <action
+            android:id="@+id/action_fragmentFreeWorkouts_to_fragmentBodyWeightWorkout"
+            app:destination="@id/fragmentBodyWeightWorkout"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out"/>
     </fragment>
+    <fragment
+        android:id="@+id/fragmentFreeWeightTrain"
+        android:name="com.laaltentech.abou.fitnessapp.bottomnav.owner.fragments.FragmentFreeWeightTrain"
+        android:label="Weight Training" />
+    <fragment
+        android:id="@+id/fragmentBodyWeightWorkout"
+        android:name="com.laaltentech.abou.fitnessapp.bottomnav.owner.fragments.FragmentBodyWeightWorkout"
+        android:label="Body Weight Training" />
 </navigation>
