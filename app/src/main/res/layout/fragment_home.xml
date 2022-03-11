@@ -159,12 +159,12 @@
                                     android:layout_marginTop="8dp"
                                     android:layout_marginBottom="8dp"
                                     android:background="@drawable/rounded_corners"
-                                    android:scaleType="centerCrop"
+                                    android:scaleType="centerInside"
                                     app:layout_constraintBottom_toBottomOf="parent"
                                     app:layout_constraintStart_toStartOf="parent"
                                     app:layout_constraintTop_toTopOf="parent"
                                     app:lottie_autoPlay="true"
-                                    app:lottie_fileName="meditation_small.json"
+                                    app:lottie_fileName="dosha_lottie.json"
                                     app:lottie_loop="true" />
 
                                 <TextView
@@ -387,12 +387,12 @@
                                     android:layout_marginTop="8dp"
                                     android:layout_marginBottom="8dp"
                                     android:background="@drawable/rounded_corners"
-                                    android:scaleType="centerInside"
+                                    android:scaleType="centerCrop"
                                     app:layout_constraintBottom_toBottomOf="parent"
                                     app:layout_constraintStart_toStartOf="parent"
                                     app:layout_constraintTop_toTopOf="parent"
                                     app:lottie_autoPlay="true"
-                                    app:lottie_fileName="full_body.json"
+                                    app:lottie_fileName="workout.json"
                                     app:lottie_loop="true" />
 
                                 <TextView

@@ -84,19 +84,34 @@ class FragmentQuizResult: Fragment(), Injectable, OnBackPressed {
         )
 
         when(prominentResult(result = percentageResult)){
-            "Vata"-> {
+            "0"-> {
                 binding.topicTitle.text = "Vata"
                 binding.resultDetails.text = resources.getString(R.string.vata_details)
             }
 
-            "Kapha" -> {
+            "1" -> {
                 binding.topicTitle.text = "Kapha"
                 binding.resultDetails.text = resources.getString(R.string.kapha_details)
             }
 
-            "Pitta" -> {
+            "2" -> {
                 binding.topicTitle.text = "Pitta"
                 binding.resultDetails.text = resources.getString(R.string.pitta_details)
+            }
+
+            "01" -> {
+                binding.topicTitle.text = "Vata & Kapha"
+                binding.resultDetails.text = resources.getString(R.string.vata_details) + "\n\n" + resources.getString(R.string.kapha_details)
+            }
+
+            "12" -> {
+                binding.topicTitle.text = "Kapha & Pitta"
+                binding.resultDetails.text = resources.getString(R.string.pitta_details) + "\n\n" + resources.getString(R.string.kapha_details)
+            }
+
+            "02" -> {
+                binding.topicTitle.text = "Vata & Pitta"
+                binding.resultDetails.text = resources.getString(R.string.vata_details) + "\n\n" + resources.getString(R.string.pitta_details)
             }
         }
 
@@ -108,32 +123,15 @@ class FragmentQuizResult: Fragment(), Injectable, OnBackPressed {
     }
 
     fun prominentResult(result : ArrayList<Int>): String{
-        var prominentResult = -1
-        var currentValue = 0;
+        var outputString = ""
+        var prominentResult = ArrayList<Int>()
         result.forEachIndexed{index, element ->
-            if(currentValue<element){
-                currentValue = element
-                prominentResult = index
+            if(element>30){
+                outputString += index.toString()
             }
         }
 
-        when(prominentResult){
-            0 -> {
-                return "Kapha"
-            }
-
-            1 -> {
-                return "Vata"
-            }
-
-            2 -> {
-                return "Pitta"
-            }
-
-            else -> {
-                return "Result"
-            }
-        }
+        return outputString
 
     }
 
